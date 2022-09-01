@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">EmDiabetes</string>
+    <string name="titulo_form_cadastro">Cadastra-se</string>
+    <string name="titulo_form_login">Login do usuário</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_senha">Senha</string>
+    <string name="texto_botao_cadastrar">Cadastrar</string>
+    <string name="texto_botao_entrar">Entrar</string>
+    <string name="texto_botao_deslogar">Deslogar</string>
+    <string name="texto_tela_cadastro">Cadastra-se</string>
 </resources>
