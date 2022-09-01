@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "561028915091",
+    "project_id": "emdiabetes-177a0",
+    "storage_bucket": "emdiabetes-177a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561028915091:android:e46d77206d532820e6d266",
+        "android_client_info": {
+          "package_name": "com.digo.emdiabetes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561028915091-ipfuid2il3ngeuvn3j2evcjm8ufti7eb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBotf-UdThoP0UB8CWXg40pLsvnRH7YyAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561028915091-ipfuid2il3ngeuvn3j2evcjm8ufti7eb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
