@@ -10,14 +10,14 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.digo.emdiabetes.R
 import com.digo.emdiabetes.databinding.FragmentLoginBinding
-//import br.com.hellodev.task.helper.BaseFragment
-//import br.com.hellodev.task.helper.FirebaseHelper
-//import br.com.hellodev.task.helper.showBottomSheet
+import com.digo.emdiabetes.helper.BaseFragment
+import com.digo.emdiabetes.helper.FirebaseHelper
+import com.digo.emdiabetes.helper.showBottomSheet
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -59,21 +59,21 @@ class LoginFragment : Fragment() {
         if (email.isNotEmpty()) {
             if (password.isNotEmpty()) {
 
-                //hideKeyboard()
+                hideKeyboard()
 
                 binding.progressBar.isVisible = true
 
                 loginUser(email, password)
 
             } else {
-                //showBottomSheet(
-                  //  message = R.string.text_password_empty_login_fragment
-                //)
+                showBottomSheet(
+                    message = R.string.text_password_empty_login_fragment
+                )
             }
         } else {
-            //showBottomSheet(
-              //  message = R.string.text_email_empty_login_fragment
-            //)
+            showBottomSheet(
+               message = R.string.text_email_empty_login_fragment
+            )
         }
     }
 
@@ -81,11 +81,11 @@ class LoginFragment : Fragment() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_global_homeFragment)
                 } else {
-                    //showBottomSheet(
-                      //  message = FirebaseHelper.validError(task.exception?.message ?: "")
-                    //)
+                    showBottomSheet(
+                      message = FirebaseHelper.validError(task.exception?.message ?: "")
+                    )
                     binding.progressBar.isVisible = false
                 }
             }

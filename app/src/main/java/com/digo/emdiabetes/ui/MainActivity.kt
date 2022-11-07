@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import com.digo.emdiabetes.R
 import com.digo.emdiabetes.databinding.ActivityMainBinding
+import com.digo.emdiabetes.helper.initToolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,4 +18,5 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
     }
+
 }

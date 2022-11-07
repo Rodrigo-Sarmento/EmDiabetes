@@ -13,7 +13,7 @@
     <string name="text_task_update_sucess">Tarefa atualizada com sucesso.</string>
 
     <!--    Login Fragment-->
-    <string name="text_btn_login_fragment">Entrar</string>
+    <string name="text_btn_login_fragment">Login</string>
     <string name="text_recover_login_fragment">Recuperar conta</string>
     <string name="text_password_empty_login_fragment">Informe sua senha.</string>
     <string name="text_email_empty_login_fragment">Informe seu e-mail.</string>
@@ -34,6 +34,38 @@
     <string name="invalid_password_register_fragment">Senha inválida, tente novamente.</string>
     <string name="email_in_use_register_fragment">Este e-mail já está em uso.</string>
     <string name="strong_password_register_fragment">Insira uma senha mais forte.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    Form Task Fragment-->
+    <string name="text_title_form_task_fragment">Nova tarefa</string>
+    <string name="text_description_form_task_fragment">Descrição</string>
+    <string name="text_description_hint_form_task_fragment">Criar nova tela de login</string>
+    <string name="text_editing_task_form_task_fragment">Editando tarefa…</string>
+    <string name="text_status_form_task_fragment">Status</string>
+    <string name="text_btn_save_task_form_task_fragment">Salvar</string>
+    <string name="text_description_empty_form_task_fragment">Informe uma descrição para a tarefa.</string>
+    <string name="text_save_task_sucess_form_task_fragment">Tarefa salva com sucesso.</string>
+    <string name="text_update_task_sucess_form_task_fragment">Tarefa atualizada com sucesso.</string>
+    <string name="text_erro_save_task_form_task_fragment">Erro ao salvar a tarefa.</string>
+
+    <!--    Status Task-->
+    <string name="status_task_todo">A Fazer</string>
+    <string name="status_task_doing">Fazendo</string>
+    <string name="status_task_done">Feitas</string>
+
+    <!--    Todo Fragment-->
+    <string name="text_task_list_empty_todo_fragment">Nenhuma tarefa cadastrada.</string>
+    <string name="text_message_delete_task_todo_fragment">Deseja realmente remover esta tarefa ?</string>
+
+    <!--    Doing Fragment-->
+    <string name="text_task_list_empty_doing_fragment">Nenhuma tarefa cadastrada.</string>
+    <string name="text_message_delete_task_doing_fragment">Deseja realmente remover esta tarefa ?</string>
+
+    <!--    Done Fragment-->
+    <string name="text_task_list_empty_done_fragment">Nenhuma tarefa cadastrada.</string>
+    <string name="text_message_delete_task_done_fragment">Deseja realmente remover esta tarefa ?</string>
+
+    <!--    BottomSheet-->
+    <string name="text_title_bottom_sheet">Atenção</string>
+    <string name="text_button_bottom_sheet">Entendi</string>
+
 </resources>

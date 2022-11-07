@@ -9,15 +9,15 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import com.digo.emdiabetes.R
 import com.digo.emdiabetes.databinding.FragmentRecoverAccountBinding
-//import br.com.hellodev.task.helper.BaseFragment
-//import br.com.hellodev.task.helper.FirebaseHelper
-//import br.com.hellodev.task.helper.initToolbar
-//import br.com.hellodev.task.helper.showBottomSheet
+import com.digo.emdiabetes.helper.BaseFragment
+import com.digo.emdiabetes.helper.FirebaseHelper
+import com.digo.emdiabetes.helper.initToolbar
+import com.digo.emdiabetes.helper.showBottomSheet
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class RecoverAccountFragment : Fragment() {
+class RecoverAccountFragment : BaseFragment() {
 
     private var _binding: FragmentRecoverAccountBinding? = null
     private val binding get() = _binding!!
@@ -34,7 +34,7 @@ class RecoverAccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //initToolbar(binding.toolbar)
+        initToolbar(binding.toolbar)
 
         auth = Firebase.auth
 
@@ -49,13 +49,13 @@ class RecoverAccountFragment : Fragment() {
         val email = binding.edtEmail.text.toString().trim()
 
         if (email.isNotEmpty()) {
-            //hideKeyboard()
+            hideKeyboard()
 
             binding.progressBar.isVisible = true
 
             recoverAccountUser(email)
         } else {
-            //showBottomSheet(message = R.string.text_email_empty_recover_account_fragment)
+            showBottomSheet(message = R.string.text_email_empty_recover_account_fragment)
         }
     }
 
@@ -63,13 +63,13 @@ class RecoverAccountFragment : Fragment() {
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    //showBottomSheet(
-                        //message = R.string.text_email_send_sucess_recover_account_fragment
-                    //)
+                    showBottomSheet(
+                        message = R.string.text_email_send_sucess_recover_account_fragment
+                    )
                 } else {
-                    //showBottomSheet(
-                        //message = FirebaseHelper.validError(task.exception?.message ?: "")
-                    //)
+                    showBottomSheet(
+                        message = FirebaseHelper.validError(task.exception?.message ?: "")
+                    )
                 }
 
                 binding.progressBar.isVisible = false
