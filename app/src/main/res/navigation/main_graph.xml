@@ -35,8 +35,9 @@
             android:id="@+id/action_homeFragment_to_formTaskFragment"
             app:destination="@id/formTaskFragment" />
     </fragment>
-    <navigation android:id="@+id/authentication"
-        app:startDestination="@id/registerFragment">
+    <navigation
+        android:id="@+id/authentication"
+        app:startDestination="@id/loginFragment">
         <fragment
             android:id="@+id/registerFragment"
             android:name="com.digo.emdiabetes.ui.auth.RegisterFragment"
@@ -46,7 +47,7 @@
             android:id="@+id/loginFragment"
             android:name="com.digo.emdiabetes.ui.auth.LoginFragment"
             android:label="fragment_login"
-            tools:layout="@layout/fragment_login" >
+            tools:layout="@layout/fragment_login">
             <action
                 android:id="@+id/action_loginFragment_to_recoverAccountFragment"
                 app:destination="@id/recoverAccountFragment" />
@@ -63,7 +64,7 @@
             android:id="@+id/action_global_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </navigation>
     <fragment
         android:id="@+id/formTaskFragment"
