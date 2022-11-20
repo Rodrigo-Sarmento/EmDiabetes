@@ -88,29 +88,7 @@
                 app:layout_constraintStart_toEndOf="@+id/btnEdit"
                 app:layout_constraintTop_toTopOf="@+id/btnEdit" />
 
-            <ImageButton
-                android:id="@+id/ibBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_back"
-                app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/btnEdit"
-                tools:tint="@color/color_default" />
 
-            <ImageButton
-                android:id="@+id/ibNext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_next"
-                app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/btnEdit"
-                tools:tint="@color/color_default" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

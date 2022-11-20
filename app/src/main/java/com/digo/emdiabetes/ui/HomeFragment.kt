@@ -52,8 +52,8 @@ class HomeFragment : Fragment() {
         val adapter = ViewPagerAdapter(requireActivity())
         binding.viewPager.adapter = adapter
 
-        adapter.addFragment(TodoFragment(), R.string.status_task_todo)
-        adapter.addFragment(DoingFragment(), R.string.status_task_doing)
+        adapter.addFragment(MedicationFragment(), R.string.status_task_todo)
+        adapter.addFragment(GlycemiaFragment(), R.string.status_task_doing)
         adapter.addFragment(DoneFragment(), R.string.status_task_done)
 
         binding.viewPager.offscreenPageLimit = adapter.itemCount

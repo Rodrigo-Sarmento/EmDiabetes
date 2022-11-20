@@ -48,9 +48,9 @@
     <string name="text_erro_save_task_form_task_fragment">Erro ao salvar a tarefa.</string>
 
     <!--    Status Task-->
-    <string name="status_task_todo">A Fazer</string>
-    <string name="status_task_doing">Fazendo</string>
-    <string name="status_task_done">Feitas</string>
+    <string name="status_task_todo">Medicamentos</string>
+    <string name="status_task_doing">Glicemia</string>
+    <string name="status_task_done">Contatos</string>
 
     <!--    Todo Fragment-->
     <string name="text_task_list_empty_todo_fragment">Nenhuma tarefa cadastrada.</string>
@@ -67,5 +67,7 @@
     <!--    BottomSheet-->
     <string name="text_title_bottom_sheet">Atenção</string>
     <string name="text_button_bottom_sheet">Entendi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

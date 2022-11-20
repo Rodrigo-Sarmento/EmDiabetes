@@ -10,59 +10,70 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.digo.emdiabetes.R
-import com.digo.emdiabetes.databinding.FragmentDoingBinding
+import com.digo.emdiabetes.databinding.FragmentGlycemiaBinding
 import com.digo.emdiabetes.helper.FirebaseHelper
 import com.digo.emdiabetes.helper.showBottomSheet
-import com.digo.emdiabetes.model.Task
-import com.digo.emdiabetes.ui.adapter.TaskAdapter
+import com.digo.emdiabetes.model.Glycemia
+import com.digo.emdiabetes.ui.adapter.GlycemiaAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
 
-class DoingFragment : Fragment() {
+class GlycemiaFragment : Fragment() {
 
-    private var _binding: FragmentDoingBinding? = null
+
+    private var _binding: FragmentGlycemiaBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var taskAdapter: TaskAdapter
+    private lateinit var glycemiaAdapter: GlycemiaAdapter
 
-    private val taskList = mutableListOf<Task>()
+    private val glycemiaList = mutableListOf<Glycemia>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDoingBinding.inflate(inflater, container, false)
+        _binding = FragmentGlycemiaBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getTasks()
+        initClicks()
+        getGlycemias()
     }
 
-    private fun getTasks() {
+    //botão ADD
+    private fun initClicks() {
+        binding.fabAddGlycemia.setOnClickListener {
+            val action = HomeFragmentDirections
+                .actionHomeFragmentToFormGlycemiaFragment(null)
+            findNavController().navigate(action)
+        }
+    }
+
+    private fun getGlycemias() {
         FirebaseHelper
             .getDatabase()
-            .child("task")
+            .child("glycemia")
             .child(FirebaseHelper.getIdUser() ?: "")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        taskList.clear()
+                        glycemiaList.clear()
                         for (snap in snapshot.children) {
-                            val task = snap.getValue(Task::class.java) as Task
+                            val glycemia = snap.getValue(Glycemia::class.java) as Glycemia
 
-                            if (task.status == 1) taskList.add(task)
+                            glycemiaList.add(glycemia)
                         }
 
-                        taskList.reverse()
+                        glycemiaList.reverse()
                         initAdapter()
                     }
 
-                    tasksEmpty()
+                    glycemiasEmpty()
                     binding.progressBar.isVisible = false
                 }
 
@@ -73,8 +84,8 @@ class DoingFragment : Fragment() {
             })
     }
 
-    private fun tasksEmpty() {
-        binding.textInfo.text = if (taskList.isEmpty()) {
+    private fun glycemiasEmpty() {
+        binding.textInfo.text = if (glycemiaList.isEmpty()) {
             getText(R.string.text_task_list_empty_doing_fragment)
         } else {
             ""
@@ -84,42 +95,34 @@ class DoingFragment : Fragment() {
     private fun initAdapter() {
         binding.rvTask.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTask.setHasFixedSize(true)
-        taskAdapter = TaskAdapter(requireContext(), taskList) { task, select ->
-            optionSelect(task, select)
+        glycemiaAdapter = GlycemiaAdapter(requireContext(), glycemiaList) { glycemia, select ->
+            optionSelect(glycemia, select)
         }
-        binding.rvTask.adapter = taskAdapter
+        binding.rvTask.adapter = glycemiaAdapter
     }
 
-    private fun optionSelect(task: Task, select: Int) {
+    private fun optionSelect(glycemia: Glycemia, select: Int) {
         when (select) {
-            TaskAdapter.SELECT_REMOVE -> {
-                deleteTask(task)
+            GlycemiaAdapter.SELECT_REMOVE -> {
+                deleteGlycemia(glycemia)
             }
-            TaskAdapter.SELECT_EDIT -> {
-                val action = HomeFragmentDirections
-                    .actionHomeFragmentToFormTaskFragment(task)
-                findNavController().navigate(action)
-            }
-            TaskAdapter.SELECT_BACK -> {
-                task.status = 0
-                updateTask(task)
-            }
-            TaskAdapter.SELECT_NEXT -> {
-                task.status = 2
-                updateTask(task)
+            GlycemiaAdapter.SELECT_EDIT -> {
+                //val action = HomeFragmentDirections
+                    //.actionHomeFragmentToFormTaskFragment(glycemia)
+                //findNavController().navigate(action)
             }
         }
     }
 
-    private fun updateTask(task: Task) {
+    private fun updateGlycemia(glycemia: Glycemia) {
         FirebaseHelper
             .getDatabase()
-            .child("task")
+            .child("glycemia")
             .child(FirebaseHelper.getIdUser() ?: "")
-            .child(task.id)
-            .setValue(task)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
+            .child(glycemia.id)
+            .setValue(glycemia)
+            .addOnCompleteListener { glycemia ->
+                if (glycemia.isSuccessful) {
                     Toast.makeText(
                         requireContext(),
                         R.string.text_task_update_sucess,
@@ -134,19 +137,19 @@ class DoingFragment : Fragment() {
             }
     }
 
-    private fun deleteTask(task: Task) {
+    private fun deleteGlycemia(glycemia: Glycemia) {
         showBottomSheet(
             titleButton = R.string.text_button_confirm,
             message = R.string.text_message_delete_task_doing_fragment,
             onClick = {
                 FirebaseHelper
                     .getDatabase()
-                    .child("task")
+                    .child("glycemia")
                     .child(FirebaseHelper.getIdUser() ?: "")
-                    .child(task.id)
+                    .child(glycemia.id)
                     .removeValue()
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
+                    .addOnCompleteListener { glycemia ->
+                        if (glycemia.isSuccessful) {
                             Toast.makeText(
                                 requireContext(),
                                 R.string.text_task_update_sucess,
@@ -160,8 +163,8 @@ class DoingFragment : Fragment() {
                         showBottomSheet(message = R.string.error_generic)
                     }
 
-                taskList.remove(task)
-                taskAdapter.notifyDataSetChanged()
+                glycemiaList.remove(glycemia)
+                glycemiaAdapter.notifyDataSetChanged()
 
                 Toast.makeText(
                     requireContext(),

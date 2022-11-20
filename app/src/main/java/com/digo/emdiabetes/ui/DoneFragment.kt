@@ -13,14 +13,12 @@ import com.digo.emdiabetes.databinding.FragmentDoneBinding
 import com.digo.emdiabetes.helper.BaseFragment
 import com.digo.emdiabetes.helper.FirebaseHelper
 import com.digo.emdiabetes.helper.showBottomSheet
-import com.digo.emdiabetes.model.Task
-import com.digo.emdiabetes.ui.adapter.TaskAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
 class DoneFragment : BaseFragment() {
-
+/*
     private var _binding: FragmentDoneBinding? = null
     private val binding get() = _binding!!
 
@@ -168,5 +166,5 @@ class DoneFragment : BaseFragment() {
         super.onDestroyView()
         _binding = null
     }
-
+*/
 }

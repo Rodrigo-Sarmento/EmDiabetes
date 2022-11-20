@@ -18,9 +18,13 @@
         <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_base.xml" value="0.1" />
         <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_doing.xml" value="0.1" />
         <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_done.xml" value="0.1" />
+        <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_form_glycemia.xml" value="0.13722826086956522" />
+        <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_form_medication.xml" value="0.22" />
         <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_form_task.xml" value="0.11775362318840579" />
+        <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_glycemia.xml" value="0.13722826086956522" />
         <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_home.xml" value="0.15942028985507245" />
         <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_medication.xml" value="0.11956521739130435" />
         <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_recover_account.xml" value="0.17" />
         <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_register.xml" value="0.17" />
         <entry key="..\:/Users/rodri/AndroidStudioProjects/EmDiabetes/app/src/main/res/layout/fragment_splash.xml" value="0.21" />

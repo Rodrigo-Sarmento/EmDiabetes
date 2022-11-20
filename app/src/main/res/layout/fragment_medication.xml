@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.TodoFragment">
+    tools:context=".ui.MedicationFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTask"
@@ -44,7 +44,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
+        android:id="@+id/fabAddMedication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

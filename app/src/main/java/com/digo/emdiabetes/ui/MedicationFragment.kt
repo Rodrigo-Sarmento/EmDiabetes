@@ -10,29 +10,30 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.digo.emdiabetes.R
-import com.digo.emdiabetes.databinding.FragmentTodoBinding
+import com.digo.emdiabetes.databinding.FragmentMedicationBinding
+
 import com.digo.emdiabetes.helper.FirebaseHelper
 import com.digo.emdiabetes.helper.showBottomSheet
-import com.digo.emdiabetes.model.Task
-import com.digo.emdiabetes.ui.adapter.TaskAdapter
+import com.digo.emdiabetes.model.Medication
+import com.digo.emdiabetes.ui.adapter.MedicationAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
-class TodoFragment : Fragment() {
+class MedicationFragment : Fragment() {
 
-    private var _binding: FragmentTodoBinding? = null
+    private var _binding: FragmentMedicationBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var taskAdapter: TaskAdapter
+    private lateinit var medicationAdapter: MedicationAdapter
 
-    private val taskList = mutableListOf<Task>()
+    private val medicationList = mutableListOf<Medication>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTodoBinding.inflate(inflater, container, false)
+        _binding = FragmentMedicationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,39 +42,39 @@ class TodoFragment : Fragment() {
 
         initClicks()
 
-        getTasks()
+        getMedications()
     }
 
     //botão ADD
     private fun initClicks() {
-        binding.fabAdd.setOnClickListener {
+        binding.fabAddMedication.setOnClickListener {
             val action = HomeFragmentDirections
                 .actionHomeFragmentToFormTaskFragment(null)
             findNavController().navigate(action)
         }
     }
 
-    private fun getTasks() {
+    private fun getMedications() {
         FirebaseHelper
             .getDatabase()
-            .child("task")
+            .child("medication")
             .child(FirebaseHelper.getIdUser() ?: "")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
 
-                        taskList.clear()
+                        medicationList.clear()
                         for (snap in snapshot.children) {
-                            val task = snap.getValue(Task::class.java) as Task
+                            val medication = snap.getValue(Medication::class.java) as Medication
 
-                            if (task.status == 0) taskList.add(task)
+                            medicationList.add(medication)
                         }
 
-                        taskList.reverse()
+                        medicationList.reverse()
                         initAdapter()
                     }
 
-                    tasksEmpty()
+                    medicationsEmpty()
 
                     binding.progressBar.isVisible = false
                 }
@@ -85,8 +86,8 @@ class TodoFragment : Fragment() {
             })
     }
 
-    private fun tasksEmpty() {
-        binding.textInfo.text = if (taskList.isEmpty()) {
+    private fun medicationsEmpty() {
+        binding.textInfo.text = if (medicationList.isEmpty()) {
             getText(R.string.text_task_list_empty_todo_fragment)
         } else {
             ""
@@ -96,38 +97,35 @@ class TodoFragment : Fragment() {
     private fun initAdapter() {
         binding.rvTask.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTask.setHasFixedSize(true)
-        taskAdapter = TaskAdapter(requireContext(), taskList) { task, select ->
+        medicationAdapter = MedicationAdapter(requireContext(), medicationList) { task, select ->
             optionSelect(task, select)
         }
-        binding.rvTask.adapter = taskAdapter
+        binding.rvTask.adapter = medicationAdapter
     }
 
-    private fun optionSelect(task: Task, select: Int) {
+    private fun optionSelect(medication: Medication, select: Int) {
         when (select) {
-            TaskAdapter.SELECT_REMOVE -> {
-                deleteTask(task)
+            MedicationAdapter.SELECT_REMOVE -> {
+                deleteMedication(medication)
             }
-            TaskAdapter.SELECT_EDIT -> {
+            MedicationAdapter.SELECT_EDIT -> {
                 val action = HomeFragmentDirections
-                    .actionHomeFragmentToFormTaskFragment(task)
+                    .actionHomeFragmentToFormTaskFragment(medication)
                 findNavController().navigate(action)
             }
-            TaskAdapter.SELECT_NEXT -> {
-                task.status = 1
-                updateTask(task)
-            }
+
         }
     }
 
-    private fun updateTask(task: Task) {
+    private fun updateMedication(medication: Medication) {
         FirebaseHelper
             .getDatabase()
-            .child("task")
+            .child("medication")
             .child(FirebaseHelper.getIdUser() ?: "")
-            .child(task.id)
-            .setValue(task)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
+            .child(medication.id)
+            .setValue(medication)
+            .addOnCompleteListener { medication ->
+                if (medication.isSuccessful) {
                     Toast.makeText(
                         requireContext(),
                         R.string.text_task_update_sucess,
@@ -142,19 +140,19 @@ class TodoFragment : Fragment() {
             }
     }
 
-    private fun deleteTask(task: Task) {
+    private fun deleteMedication(medication: Medication) {
         showBottomSheet(
             titleButton = R.string.text_button_confirm,
             message = R.string.text_message_delete_task_todo_fragment,
             onClick = {
                 FirebaseHelper
                     .getDatabase()
-                    .child("task")
+                    .child("medication")
                     .child(FirebaseHelper.getIdUser() ?: "")
-                    .child(task.id)
+                    .child(medication.id)
                     .removeValue()
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
+                    .addOnCompleteListener { medication ->
+                        if (medication.isSuccessful) {
                             Toast.makeText(
                                 requireContext(),
                                 R.string.text_task_update_sucess,
@@ -168,8 +166,8 @@ class TodoFragment : Fragment() {
                         showBottomSheet(message = R.string.error_generic)
                     }
 
-                taskList.remove(task)
-                taskAdapter.notifyDataSetChanged()
+                medicationList.remove(medication)
+                medicationAdapter.notifyDataSetChanged()
 
                 Toast.makeText(requireContext(), R.string.text_task_delete_sucess, Toast.LENGTH_SHORT).show()
             }
