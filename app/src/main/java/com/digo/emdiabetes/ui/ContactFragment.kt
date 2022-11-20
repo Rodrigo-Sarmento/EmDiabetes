@@ -1,6 +1,7 @@
 package com.digo.emdiabetes.ui
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,58 +10,72 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.digo.emdiabetes.R
-import com.digo.emdiabetes.databinding.FragmentDoneBinding
-import com.digo.emdiabetes.helper.BaseFragment
+import com.digo.emdiabetes.databinding.FragmentContactBinding
+
 import com.digo.emdiabetes.helper.FirebaseHelper
 import com.digo.emdiabetes.helper.showBottomSheet
+import com.digo.emdiabetes.model.Contact
+import com.digo.emdiabetes.ui.adapter.ContactAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
-class DoneFragment : BaseFragment() {
-/*
-    private var _binding: FragmentDoneBinding? = null
+class ContactFragment : Fragment() {
+
+    private var _binding: FragmentContactBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var taskAdapter: TaskAdapter
+    private lateinit var contactAdapter: ContactAdapter
 
-    private val taskList = mutableListOf<Task>()
+    private val contactList = mutableListOf<Contact>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDoneBinding.inflate(inflater, container, false)
+        _binding = FragmentContactBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getTasks()
+        initClicks()
+
+        getContacts()
     }
 
-    private fun getTasks() {
+    //botão ADD
+    private fun initClicks() {
+        binding.fabAddContact.setOnClickListener {
+            val action = HomeFragmentDirections
+                .actionHomeFragmentToFormContactFragment(null)
+            findNavController().navigate(action)
+        }
+    }
+
+    private fun getContacts() {
         FirebaseHelper
             .getDatabase()
-            .child("task")
+            .child("contact")
             .child(FirebaseHelper.getIdUser() ?: "")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
 
-                        taskList.clear()
+                        contactList.clear()
                         for (snap in snapshot.children) {
-                            val task = snap.getValue(Task::class.java) as Task
+                            val contact = snap.getValue(Contact::class.java) as Contact
 
-                            if (task.status == 2) taskList.add(task)
+                            contactList.add(contact)
                         }
 
-                        taskList.reverse()
+                        contactList.reverse()
                         initAdapter()
                     }
 
-                    tasksEmpty()
+                    contactsEmpty()
+
                     binding.progressBar.isVisible = false
                 }
 
@@ -71,10 +86,10 @@ class DoneFragment : BaseFragment() {
             })
     }
 
-    private fun tasksEmpty() {
-        binding.textInfo.text = if(taskList.isEmpty()){
-            getText(R.string.text_task_list_empty_done_fragment)
-        }else {
+    private fun contactsEmpty() {
+        binding.textInfo.text = if (contactList.isEmpty()) {
+            getText(R.string.text_task_list_empty_todo_fragment)
+        } else {
             ""
         }
     }
@@ -82,38 +97,35 @@ class DoneFragment : BaseFragment() {
     private fun initAdapter() {
         binding.rvTask.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTask.setHasFixedSize(true)
-        taskAdapter = TaskAdapter(requireContext(), taskList) { task, select ->
-            optionSelect(task, select)
+        contactAdapter = ContactAdapter(requireContext(), contactList) { contact, select ->
+            optionSelect(contact, select)
         }
-        binding.rvTask.adapter = taskAdapter
+        binding.rvTask.adapter = contactAdapter
     }
 
-    private fun optionSelect(task: Task, select: Int) {
+    private fun optionSelect(contact: Contact, select: Int) {
         when (select) {
-            TaskAdapter.SELECT_REMOVE -> {
-                deleteTask(task)
+            ContactAdapter.SELECT_REMOVE -> {
+                deleteContact(contact)
             }
-            TaskAdapter.SELECT_EDIT -> {
-                val action = HomeFragmentDirections
-                    .actionHomeFragmentToFormTaskFragment(task)
-                findNavController().navigate(action)
+            ContactAdapter.SELECT_EDIT -> {
+                //val action = HomeFragmentDirections
+                    //.actionHomeFragmentToFormTaskFragment(contact)
+                //findNavController().navigate(action)
             }
-            TaskAdapter.SELECT_BACK -> {
-                task.status = 1
-                updateTask(task)
-            }
+
         }
     }
 
-    private fun updateTask(task: Task) {
+    private fun updateContact(contact: Contact) {
         FirebaseHelper
             .getDatabase()
-            .child("task")
+            .child("contact")
             .child(FirebaseHelper.getIdUser() ?: "")
-            .child(task.id)
-            .setValue(task)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
+            .child(contact.id)
+            .setValue(contact)
+            .addOnCompleteListener { contact ->
+                if (contact.isSuccessful) {
                     Toast.makeText(
                         requireContext(),
                         R.string.text_task_update_sucess,
@@ -128,19 +140,19 @@ class DoneFragment : BaseFragment() {
             }
     }
 
-    private fun deleteTask(task: Task) {
+    private fun deleteContact(contact: Contact) {
         showBottomSheet(
             titleButton = R.string.text_button_confirm,
-            message = R.string.text_message_delete_task_done_fragment,
+            message = R.string.text_message_delete_task_todo_fragment,
             onClick = {
                 FirebaseHelper
                     .getDatabase()
-                    .child("task")
+                    .child("contact")
                     .child(FirebaseHelper.getIdUser() ?: "")
-                    .child(task.id)
+                    .child(contact.id)
                     .removeValue()
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
+                    .addOnCompleteListener { contact ->
+                        if (contact.isSuccessful) {
                             Toast.makeText(
                                 requireContext(),
                                 R.string.text_task_update_sucess,
@@ -154,8 +166,8 @@ class DoneFragment : BaseFragment() {
                         showBottomSheet(message = R.string.error_generic)
                     }
 
-                taskList.remove(task)
-                taskAdapter.notifyDataSetChanged()
+                contactList.remove(contact)
+                contactAdapter.notifyDataSetChanged()
 
                 Toast.makeText(requireContext(), R.string.text_task_delete_sucess, Toast.LENGTH_SHORT).show()
             }
@@ -166,5 +178,5 @@ class DoneFragment : BaseFragment() {
         super.onDestroyView()
         _binding = null
     }
-*/
+
 }

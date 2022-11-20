@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
 
         adapter.addFragment(MedicationFragment(), R.string.status_task_todo)
         adapter.addFragment(GlycemiaFragment(), R.string.status_task_doing)
-        adapter.addFragment(DoneFragment(), R.string.status_task_done)
+        adapter.addFragment(ContactFragment(), R.string.status_task_done)
 
         binding.viewPager.offscreenPageLimit = adapter.itemCount
 

@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_homeFragment_to_formGlycemiaFragment"
             app:destination="@id/formGlycemiaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_formContactFragment"
+            app:destination="@id/formContactFragment" />
     </fragment>
     <navigation
         android:id="@+id/authentication"
@@ -87,6 +90,16 @@
         <argument
             android:name="glycemia"
             app:argType="com.digo.emdiabetes.model.Glycemia"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/formContactFragment"
+        android:name="com.digo.emdiabetes.ui.FormContactFragment"
+        android:label="fragment_form_contact"
+        tools:layout="@layout/fragment_form_contact" >
+        <argument
+            android:name="contact"
+            app:argType="com.digo.emdiabetes.model.Contact"
             app:nullable="true" />
     </fragment>
 </navigation>
