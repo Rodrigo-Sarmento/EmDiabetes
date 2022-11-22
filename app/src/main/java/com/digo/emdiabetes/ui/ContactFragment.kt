@@ -109,9 +109,9 @@ class ContactFragment : Fragment() {
                 deleteContact(contact)
             }
             ContactAdapter.SELECT_EDIT -> {
-                //val action = HomeFragmentDirections
-                    //.actionHomeFragmentToFormTaskFragment(contact)
-                //findNavController().navigate(action)
+                val action = HomeFragmentDirections
+                    .actionHomeFragmentToFormContactFragment(contact)
+                findNavController().navigate(action)
             }
 
         }

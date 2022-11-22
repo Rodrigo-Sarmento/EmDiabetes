@@ -107,9 +107,9 @@ class GlycemiaFragment : Fragment() {
                 deleteGlycemia(glycemia)
             }
             GlycemiaAdapter.SELECT_EDIT -> {
-                //val action = HomeFragmentDirections
-                    //.actionHomeFragmentToFormTaskFragment(glycemia)
-                //findNavController().navigate(action)
+                val action = HomeFragmentDirections
+                    .actionHomeFragmentToFormGlycemiaFragment(glycemia)
+                findNavController().navigate(action)
             }
         }
     }
