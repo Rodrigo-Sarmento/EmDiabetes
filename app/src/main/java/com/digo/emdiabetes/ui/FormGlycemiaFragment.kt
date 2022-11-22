@@ -89,7 +89,8 @@ class FormGlycemiaFragment : BaseFragment() {
 
     private fun validateData() {
         //quantidade de glicemia
-        val glicemia = binding.edtDescription.text.toString().trim()
+        val glicemia = binding.edtGlycemia.text.toString().trim()
+        val descricao = binding.edtDescription.text.toString().trim()
 
         if (glicemia.isNotEmpty()) {
 
@@ -99,6 +100,7 @@ class FormGlycemiaFragment : BaseFragment() {
 
             if (newGlycemia) glycemia= Glycemia()
             glycemia.glicemia = glicemia
+            glycemia.descricao = descricao
             //task.status = statusTask
 
             saveGlycemia()

@@ -89,6 +89,7 @@ class FormMedicationFragment : BaseFragment() {
 
     private fun validateData() {
         val nome = binding.edtDescription.text.toString().trim()
+        val quantidade = binding.edtQtd.text.toString().trim()
 
         if (nome.isNotEmpty()) {
 
@@ -98,6 +99,7 @@ class FormMedicationFragment : BaseFragment() {
 
             if (newMedication) medication = Medication()
             medication.nome = nome
+            medication.quantidade = Integer.valueOf(quantidade)
             //task.status = statusTask
 
             saveMedication()

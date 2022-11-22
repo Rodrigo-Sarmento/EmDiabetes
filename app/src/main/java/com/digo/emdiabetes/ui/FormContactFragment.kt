@@ -90,6 +90,7 @@ class FormContactFragment : BaseFragment() {
     private fun validateData() {
         //nome contato
         val nome = binding.edtDescription.text.toString().trim()
+        val numero = binding.edtNumero.text.toString().trim()
 
         if (nome.isNotEmpty()) {
 
@@ -99,6 +100,7 @@ class FormContactFragment : BaseFragment() {
 
             if (newContact) contact= Contact()
             contact.nome = nome
+            contact.numero = Integer.valueOf(numero)
             //task.status = statusTask
 
             saveContact()

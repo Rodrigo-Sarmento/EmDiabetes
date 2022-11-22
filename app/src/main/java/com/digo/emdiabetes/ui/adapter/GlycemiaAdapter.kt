@@ -34,7 +34,7 @@ class GlycemiaAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val glycemia= glycemiaList[position]
 
-        holder.binding.textDescription.text = glycemia.glicemia
+        holder.binding.textDescription.text = "Glicemia: "+glycemia.glicemia+"mg/dL" +"\nDescrição: "+ glycemia.descricao
 
         holder.binding.btnDelete.setOnClickListener { glycemiaSelected(glycemia, SELECT_REMOVE) }
         holder.binding.btnEdit.setOnClickListener { glycemiaSelected(glycemia, SELECT_EDIT) }

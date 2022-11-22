@@ -34,7 +34,7 @@ class ContactAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val contact= contactList[position]
 
-        holder.binding.textDescription.text = contact.nome
+        holder.binding.textDescription.text = "Nome: "+contact.nome +"\nNúmero: "+ contact.numero
 
         holder.binding.btnDelete.setOnClickListener { contactSelected(contact, SELECT_REMOVE) }
         holder.binding.btnEdit.setOnClickListener { contactSelected(contact, SELECT_EDIT) }
