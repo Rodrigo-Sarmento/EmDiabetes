@@ -57,7 +57,7 @@ class FormContactFragment : BaseFragment() {
     private fun configContact() {
         newContact = false
         //statusTask = task.status
-        binding.textToolbar.text = getString(R.string.text_editing_task_form_task_fragment)
+        binding.textToolbar.text = getString(R.string.text_editing_form_fragment)
 
         binding.edtDescription.setText(contact.nome)
         //setStatus()
@@ -105,7 +105,7 @@ class FormContactFragment : BaseFragment() {
 
             saveContact()
         } else {
-            showBottomSheet(message = R.string.text_description_empty_form_task_fragment)
+            showBottomSheet(message = R.string.text_description_empty_form_fragment)
         }
     }
 
@@ -122,24 +122,24 @@ class FormContactFragment : BaseFragment() {
                         findNavController().popBackStack()
                         Toast.makeText(
                             requireContext(),
-                            R.string.text_save_task_sucess_form_task_fragment,
+                            R.string.text_save_sucess_form_fragment,
                             Toast.LENGTH_SHORT
                         ).show()
                     } else { // Editando tarefa
                         binding.progressBar.isVisible = false
                         Toast.makeText(
                             requireContext(),
-                            R.string.text_update_task_sucess_form_task_fragment,
+                            R.string.text_update_sucess_form_fragment,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 } else {
-                    Toast.makeText(requireContext(), R.string.text_erro_save_task_form_task_fragment, Toast.LENGTH_SHORT)
+                    Toast.makeText(requireContext(), R.string.text_erro_save_form_fragment, Toast.LENGTH_SHORT)
                         .show()
                 }
             }.addOnFailureListener {
                 binding.progressBar.isVisible = false
-                Toast.makeText(requireContext(), R.string.text_erro_save_task_form_task_fragment, Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), R.string.text_erro_save_form_fragment, Toast.LENGTH_SHORT)
                     .show()
             }
     }

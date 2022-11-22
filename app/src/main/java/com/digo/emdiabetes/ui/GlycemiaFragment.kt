@@ -86,7 +86,7 @@ class GlycemiaFragment : Fragment() {
 
     private fun glycemiasEmpty() {
         binding.textInfo.text = if (glycemiaList.isEmpty()) {
-            getText(R.string.text_task_list_empty_doing_fragment)
+            getText(R.string.text_glycemia_list_empty_fragment)
         } else {
             ""
         }
@@ -140,7 +140,7 @@ class GlycemiaFragment : Fragment() {
     private fun deleteGlycemia(glycemia: Glycemia) {
         showBottomSheet(
             titleButton = R.string.text_button_confirm,
-            message = R.string.text_message_delete_task_doing_fragment,
+            message = R.string.text_message_delete_glycemia_fragment,
             onClick = {
                 FirebaseHelper
                     .getDatabase()

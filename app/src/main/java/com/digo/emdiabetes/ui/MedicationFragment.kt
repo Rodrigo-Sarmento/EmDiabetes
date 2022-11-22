@@ -88,7 +88,7 @@ class MedicationFragment : Fragment() {
 
     private fun medicationsEmpty() {
         binding.textInfo.text = if (medicationList.isEmpty()) {
-            getText(R.string.text_task_list_empty_todo_fragment)
+            getText(R.string.text_medication_list_empty_fragment)
         } else {
             ""
         }
@@ -143,7 +143,7 @@ class MedicationFragment : Fragment() {
     private fun deleteMedication(medication: Medication) {
         showBottomSheet(
             titleButton = R.string.text_button_confirm,
-            message = R.string.text_message_delete_task_todo_fragment,
+            message =R.string.text_message_delete_medication_fragment,
             onClick = {
                 FirebaseHelper
                     .getDatabase()

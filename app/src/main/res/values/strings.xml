@@ -9,8 +9,8 @@
     <string name="text_register_account">Criar conta</string>
     <string name="error_generic">Ocorreu um erro, por favor tente novamente mais tarde.</string>
     <string name="text_button_confirm">Confirmar</string>
-    <string name="text_task_delete_sucess">Tarefa removida com sucesso.</string>
-    <string name="text_task_update_sucess">Tarefa atualizada com sucesso.</string>
+    <string name="text_task_delete_sucess">Removido com sucesso.</string>
+    <string name="text_task_update_sucess">Atualizado com sucesso.</string>
 
     <!--    Login Fragment-->
     <string name="text_btn_login_fragment">Login</string>
@@ -35,34 +35,34 @@
     <string name="email_in_use_register_fragment">Este e-mail já está em uso.</string>
     <string name="strong_password_register_fragment">Insira uma senha mais forte.</string>
 
-    <!--    Form Task Fragment-->
-    <string name="text_title_form_task_fragment">Nova tarefa</string>
-    <string name="text_description_form_task_fragment">Descrição</string>
-    <string name="text_description_hint_form_task_fragment">Criar nova tela de login</string>
-    <string name="text_editing_task_form_task_fragment">Editando tarefa…</string>
-    <string name="text_status_form_task_fragment">Status</string>
-    <string name="text_btn_save_task_form_task_fragment">Salvar</string>
-    <string name="text_description_empty_form_task_fragment">Informe uma descrição para a tarefa.</string>
-    <string name="text_save_task_sucess_form_task_fragment">Tarefa salva com sucesso.</string>
-    <string name="text_update_task_sucess_form_task_fragment">Tarefa atualizada com sucesso.</string>
-    <string name="text_erro_save_task_form_task_fragment">Erro ao salvar a tarefa.</string>
+    <!--    Forms Fragment-->
+    <string name="text_title_form_fragment">Nova</string>
+    <string name="text_description_form_fragment">Descrição</string>
+    <string name="text_description_hint_form_fragment">digite aqui...</string>
+    <string name="text_editing_form_fragment">Editando…</string>
+    <string name="text_status_form_fragment">Status</string>
+    <string name="text_btn_save_form_fragment">Salvar</string>
+    <string name="text_description_empty_form_fragment">Informe a informação solicitada.</string>
+    <string name="text_save_sucess_form_fragment">Salvo com sucesso.</string>
+    <string name="text_update_sucess_form_fragment">Atualizado com sucesso.</string>
+    <string name="text_erro_save_form_fragment">Erro ao salvar.</string>
 
-    <!--    Status Task-->
-    <string name="status_task_todo">Medicamentos</string>
-    <string name="status_task_doing">Glicemia</string>
-    <string name="status_task_done">Contatos</string>
+    <!--    Options-->
+    <string name="option_medication">Remédios</string>
+    <string name="option_glycemia">Glicemia</string>
+    <string name="option_contact">Contatos</string>
 
-    <!--    Todo Fragment-->
-    <string name="text_task_list_empty_todo_fragment">Nenhuma tarefa cadastrada.</string>
-    <string name="text_message_delete_task_todo_fragment">Deseja realmente remover esta tarefa ?</string>
+    <!--    Medication Fragment-->
+    <string name="text_medication_list_empty_fragment">Nenhuma medicação cadastrada.</string>
+    <string name="text_message_delete_medication_fragment">Deseja realmente remover este medicamento?</string>
 
-    <!--    Doing Fragment-->
-    <string name="text_task_list_empty_doing_fragment">Nenhuma tarefa cadastrada.</string>
-    <string name="text_message_delete_task_doing_fragment">Deseja realmente remover esta tarefa ?</string>
+    <!--    Glycemia Fragment-->
+    <string name="text_glycemia_list_empty_fragment">Nenhuma glicemia cadastrada.</string>
+    <string name="text_message_delete_glycemia_fragment">Deseja realmente remover esta glicemia?</string>
 
-    <!--    Done Fragment-->
-    <string name="text_task_list_empty_done_fragment">Nenhuma tarefa cadastrada.</string>
-    <string name="text_message_delete_task_done_fragment">Deseja realmente remover esta tarefa ?</string>
+    <!--    Contact Fragment-->
+    <string name="text_contact_list_empty_fragment">Nenhum contato cadastrada.</string>
+    <string name="text_message_delete_contact_fragment">Deseja realmente remover este contato?</string>
 
     <!--    BottomSheet-->
     <string name="text_title_bottom_sheet">Atenção</string>

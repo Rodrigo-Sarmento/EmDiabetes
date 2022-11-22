@@ -88,7 +88,7 @@ class ContactFragment : Fragment() {
 
     private fun contactsEmpty() {
         binding.textInfo.text = if (contactList.isEmpty()) {
-            getText(R.string.text_task_list_empty_todo_fragment)
+            getText(R.string.text_contact_list_empty_fragment)
         } else {
             ""
         }
@@ -143,7 +143,7 @@ class ContactFragment : Fragment() {
     private fun deleteContact(contact: Contact) {
         showBottomSheet(
             titleButton = R.string.text_button_confirm,
-            message = R.string.text_message_delete_task_todo_fragment,
+            message = R.string.text_message_delete_contact_fragment,
             onClick = {
                 FirebaseHelper
                     .getDatabase()
