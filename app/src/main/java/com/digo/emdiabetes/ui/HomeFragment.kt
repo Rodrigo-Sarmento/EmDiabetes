@@ -36,11 +36,17 @@ class HomeFragment : Fragment() {
 
         configTablayout()
 
+        openCalcInsu()
+
         initClicks()
     }
 
     private fun initClicks() {
         binding.ibLogout.setOnClickListener { logoutApp() }
+    }
+
+    private fun openCalcInsu(){
+        binding.ibCalc.setOnClickListener{(findNavController().navigate(R.id.action_homeFragment_to_calcInsulinaFragment))}
     }
 
     private fun logoutApp() {

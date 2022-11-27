@@ -46,13 +46,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/ibMenu"
+                android:id="@+id/ibCalc"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginEnd="352dp"
                 android:background="@android:color/transparent"
                 android:paddingHorizontal="8dp"
-                android:src="@drawable/ic_menu"
+                android:src="@drawable/ic_calculate"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

@@ -64,6 +64,16 @@
     <string name="text_contact_list_empty_fragment">Nenhum contato cadastrada.</string>
     <string name="text_message_delete_contact_fragment">Deseja realmente remover este contato?</string>
 
+    <!--    Calc Insulina Fragment-->
+    <string name="hint_peso">Seu Peso(Kg)</string>
+    <string name="hint_carboidratos">Carboidrato(g)</string>
+    <string name="text_buttom_calcular">Calcular Quantidade de Insulina</string>
+    <string name="text_buttom_lembrete">Lembrete</string>
+    <string name="text_buttom_alarme">Alarme</string>
+    <string name="text_hora">00</string>
+    <string name="text_dois_pontos">:</string>
+    <string name="text_minutos">00</string>
+
     <!--    BottomSheet-->
     <string name="text_title_bottom_sheet">Atenção</string>
     <string name="text_button_bottom_sheet">Entendi</string>
