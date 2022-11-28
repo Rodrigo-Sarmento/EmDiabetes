@@ -73,6 +73,11 @@
     <string name="text_hora">00</string>
     <string name="text_dois_pontos">:</string>
     <string name="text_minutos">00</string>
+    <string name="toast_informe_peso">Informe seu peso!</string>
+    <string name="toast_informe_carboidrato">Informe a quantidade de carboidrato!</string>
+    <string name="dialog_titulo">Redefinir dados</string>
+    <string name="dialog_desc">Deseja excluir todos os dados existentes?</string>
+    <string name="alarme_mensagem">Hora de tomar insulina!</string>
 
     <!--    BottomSheet-->
     <string name="text_title_bottom_sheet">Atenção</string>
