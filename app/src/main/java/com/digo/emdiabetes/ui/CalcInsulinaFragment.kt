@@ -105,7 +105,7 @@ class CalcInsulinaFragment : Fragment() {
                 val intent = Intent(AlarmClock.ACTION_SET_ALARM)
                 intent.putExtra(AlarmClock.EXTRA_HOUR, txt_hora.text.toString().toInt())
                 intent.putExtra(AlarmClock.EXTRA_MINUTES, txt_minutos.text.toString().toInt())
-                intent.putExtra(AlarmClock.EXTRA_MESSAGE, getString(R.string.alarme_mensagem))
+                intent.putExtra(AlarmClock.EXTRA_MESSAGE, getString(R.string.alarme_mensagem)+" Sua dosagem é: "+txt_resultado_uiml.text)
                 startActivity(intent)
             }
         }
