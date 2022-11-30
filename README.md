@@ -36,6 +36,7 @@ O aplicativo permitirá o usuário calcular a dosagem correta de sua insulina.
 O aplicativo permitirá que o usuário mande uma mensagem de alerta para seus contatos de segurança.
 
 ![foto_splash](https://user-images.githubusercontent.com/59851576/204801256-2f13caf5-c1bf-4e97-8689-e236caf72139.png)
+![foto_login](https://user-images.githubusercontent.com/59851576/204833858-705f55c3-88c1-4bc0-a388-30debb86991c.png)
 
 </p>
 
