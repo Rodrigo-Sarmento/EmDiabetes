@@ -36,7 +36,7 @@
             android:id="@+id/textInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Carregando tarefas..."
+            android:text="Carregando contatos..."
             android:layout_marginTop="8dp"
             android:textColor="@color/white"
             android:textAlignment="center" />
