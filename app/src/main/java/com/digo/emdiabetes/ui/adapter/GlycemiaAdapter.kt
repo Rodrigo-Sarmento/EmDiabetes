@@ -39,7 +39,7 @@ class GlycemiaAdapter(
         val colorGlicoseDesregulada = ContextCompat.getColor(context, R.color.color_1)
         val colorGlicoseregulada = ContextCompat.getColor(context, R.color.color_2)
 
-        holder.binding.textDescription.text = "Glicemia: "+glycemia.glicemia+"mg/dL" +"\nDescrição: "+ glycemia.descricao
+        holder.binding.textDescription.text = "Data: "+glycemia.dia+"/"+glycemia.mes+"/"+glycemia.ano+"\nGlicemia: "+glycemia.glicemia+"mg/dL"+"\nDescrição: "+ glycemia.descricao
 
         if (glycemia.glicemia.toDouble() >= 200 || glycemia.glicemia.toDouble() <= 75){
             holder.binding.cardview.setCardBackgroundColor(colorGlicoseDesregulada)

@@ -25,7 +25,6 @@ class FormGlycemiaFragment : BaseFragment() {
 
     private lateinit var glycemia: Glycemia
     private var newGlycemia: Boolean = true
-   // private var qtdMedication: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -91,6 +90,9 @@ class FormGlycemiaFragment : BaseFragment() {
         //quantidade de glicemia
         val glicemia = binding.edtGlycemia.text.toString().trim()
         val descricao = binding.edtDescription.text.toString().trim()
+        val dia = binding.edtDia.text.toString().toInt()
+        val mes = binding.edtMes.text.toString().toInt()
+        val ano = binding.edtAno.text.toString().toInt()
 
         if (glicemia.isNotEmpty()) {
 
@@ -101,7 +103,9 @@ class FormGlycemiaFragment : BaseFragment() {
             if (newGlycemia) glycemia= Glycemia()
             glycemia.glicemia = glicemia
             glycemia.descricao = descricao
-            //task.status = statusTask
+            glycemia.dia = dia
+            glycemia.mes = mes
+            glycemia.ano = ano
 
             saveGlycemia()
         } else {
