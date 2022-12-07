@@ -57,6 +57,8 @@ O aplicativo permitirá que o usuário mande uma mensagem de alerta para seus co
 
 :heavy_check_mark: `Funcionalidade 5:` Alertar horário de insulina e medicação.
 
+:heavy_check_mark: `Funcionalidade 6:` Sinalizar hiperglicemia e hipoglicemia.
+
 ## Aplicação
 [videoEmD1.webm](https://user-images.githubusercontent.com/59851576/206075565-3514a933-225f-4dd0-b2f3-224dc8d7f4ca.webm)
 
