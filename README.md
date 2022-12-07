@@ -37,9 +37,10 @@ O aplicativo lembrará o usuário a hora de tomar sua insulina e seus medicament
 O aplicativo permitirá o usuário calcular a dosagem correta de sua insulina.
 
 O aplicativo permitirá que o usuário mande uma mensagem de alerta para seus contatos de segurança.
-
-![foto_splash](https://user-images.githubusercontent.com/59851576/204801256-2f13caf5-c1bf-4e97-8689-e236caf72139.png)
-![foto_login](https://user-images.githubusercontent.com/59851576/204833858-705f55c3-88c1-4bc0-a388-30debb86991c.png)
+ 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/59851576/206073295-1482fbc2-ada8-46ef-82ec-4e902efb994f.png" width="350" height="600"/>
+<p/>
 
 </p>
 
@@ -56,12 +57,7 @@ O aplicativo permitirá que o usuário mande uma mensagem de alerta para seus co
 :heavy_check_mark: `Funcionalidade 5:` Alertar horário de insulina e medicação.
 
 ## Aplicação
-
-<div align="center">
-
-!
-
-  </div>
+[videoEmD1.webm](https://user-images.githubusercontent.com/59851576/206075565-3514a933-225f-4dd0-b2f3-224dc8d7f4ca.webm)
 
 ###
 
