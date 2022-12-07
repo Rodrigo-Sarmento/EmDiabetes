@@ -1,9 +1,10 @@
-![LogoMarcaEmDiabetesRetangular](https://user-images.githubusercontent.com/59851576/204794398-1442ad59-e547-4556-af20-f88cb2d9a01e.png)
-
+<p align="center">
+<img src="https://user-images.githubusercontent.com/59851576/204794398-1442ad59-e547-4556-af20-f88cb2d9a01e.png"/>
+<p/>
 <hr>
 
 <p align="center">
-   <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge" #vitrinedev/>
+   <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge"/>
 </p>
 
 ### Tópicos 
