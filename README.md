@@ -4,7 +4,7 @@
 <hr>
 
 <p align="center">
-   <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge"/>
+   <img src="http://img.shields.io/static/v1?label=LICENSE&message=%20MIT&color=RED&style=for-the-badge"/>
 </p>
 
 ### Tópicos 
@@ -16,6 +16,8 @@
 - [Aplicação](#aplicação)
 
 - [Ferramentas utilizadas](#Técnicas-e-tecnologias-utilizadas)
+
+- [Compatibilidade](#Compatibilidade)
 
 - [Acesso ao projeto](#acesso-ao-projeto)
 
@@ -74,6 +76,11 @@ O aplicativo permitirá que o usuário mande uma mensagem de alerta para seus co
 - ``Tablayout``
 - ``Adapter``
 - ``RecyclerView``
+###
+
+## Compatibilidade
+
+Garantia de funcionamento a partir da versão 5.0 (Lollipop) do Android
 ###
 
 ## Acesso ao projeto
