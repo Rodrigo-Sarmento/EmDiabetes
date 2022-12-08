@@ -122,7 +122,7 @@ class GlycemiaFragment : Fragment() {
             val intent = Intent(AlarmClock.ACTION_SET_ALARM)
             intent.putExtra(AlarmClock.EXTRA_HOUR, hourOfDay)
             intent.putExtra(AlarmClock.EXTRA_MINUTES, minutes)
-            intent.putExtra(AlarmClock.EXTRA_MESSAGE, "Hora de medir a glicemia!")
+            intent.putExtra(AlarmClock.EXTRA_MESSAGE, "Hora de medir a glicemia!Glicemia escolhida:"+glycemia.glicemia+"mg/dL")
             startActivity(intent)
         },horaAtual,minutosAtuais,true)
         timePickerDialog.show()
