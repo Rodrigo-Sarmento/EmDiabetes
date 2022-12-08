@@ -39,7 +39,6 @@ class MedicationAdapter(
         holder.binding.btnDelete.setOnClickListener { medicationSelected(medication, SELECT_REMOVE) }
         holder.binding.btnEdit.setOnClickListener { medicationSelected(medication, SELECT_EDIT) }
         holder.binding.btnDetails.setOnClickListener { medicationSelected(medication, SELECT_DETAILS) }
-        holder.binding.btnDetails.setText("Alerta")
 
 
     }

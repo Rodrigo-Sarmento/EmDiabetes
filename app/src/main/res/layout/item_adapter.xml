@@ -82,7 +82,7 @@
                 android:textSize="12sp"
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="6dp"
-                android:text="Detalhes"
+                android:text="Alarme"
                 app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
