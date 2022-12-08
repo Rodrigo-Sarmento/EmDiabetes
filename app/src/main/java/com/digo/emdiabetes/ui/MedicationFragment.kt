@@ -125,7 +125,7 @@ class MedicationFragment : Fragment() {
             val intent = Intent(AlarmClock.ACTION_SET_ALARM)
             intent.putExtra(AlarmClock.EXTRA_HOUR, hourOfDay)
             intent.putExtra(AlarmClock.EXTRA_MINUTES, minutes)
-            intent.putExtra(AlarmClock.EXTRA_MESSAGE, "hora da medicação: "+medication.nome)
+            intent.putExtra(AlarmClock.EXTRA_MESSAGE, "hora da medicação: "+medication.nome+" Sua dosagem é de: "+medication.dosagem)
             startActivity(intent)
         },horaAtual,minutosAtuais,true)
         timePickerDialog.show()

@@ -34,7 +34,7 @@ class MedicationAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val medication = medicationList[position]
 
-        holder.binding.textDescription.text = "Nome: "+medication.nome + "\nQuantidade: "+medication.quantidade
+        holder.binding.textDescription.text = "Nome: "+medication.nome + "\nDosagem: "+medication.dosagem
 
         holder.binding.btnDelete.setOnClickListener { medicationSelected(medication, SELECT_REMOVE) }
         holder.binding.btnEdit.setOnClickListener { medicationSelected(medication, SELECT_EDIT) }

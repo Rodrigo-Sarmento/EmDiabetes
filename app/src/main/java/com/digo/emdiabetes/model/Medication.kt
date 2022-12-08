@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 data class Medication(
     var id: String = "",
     var nome: String = "",
-    var quantidade: Int = 0
+    var dosagem: String = ""
 ) : Parcelable {
     init {
         this.id = FirebaseHelper.getDatabase().push().key ?: ""

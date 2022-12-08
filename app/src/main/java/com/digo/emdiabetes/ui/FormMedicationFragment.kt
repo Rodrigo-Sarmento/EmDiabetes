@@ -25,7 +25,6 @@ class FormMedicationFragment : BaseFragment() {
 
     private lateinit var medication: Medication
     private var newMedication: Boolean = true
-    private var qtdMedication: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,7 +88,7 @@ class FormMedicationFragment : BaseFragment() {
 
     private fun validateData() {
         val nome = binding.edtDescription.text.toString().trim()
-        val quantidade = binding.edtQtd.text.toString().trim()
+        val dosagem = binding.edtDosagem.text.toString().trim()
 
         if (nome.isNotEmpty()) {
 
@@ -99,7 +98,7 @@ class FormMedicationFragment : BaseFragment() {
 
             if (newMedication) medication = Medication()
             medication.nome = nome
-            medication.quantidade = Integer.valueOf(quantidade)
+            medication.dosagem = dosagem
             //task.status = statusTask
 
             saveMedication()
