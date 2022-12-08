@@ -26,7 +26,7 @@ class CalcInsulinaFragment : Fragment() {
     private lateinit var edit_peso: EditText
     private lateinit var edit_carboidrato: EditText
     private lateinit var bt_calcular: Button
-    private lateinit var txt_resultado_uiml: TextView
+    private lateinit var txt_resultado_ui: TextView
     private lateinit var ic_redefinir_dados: ImageView
     private lateinit var bt_lembrete:Button
     private lateinit var bt_alarme:Button
@@ -68,7 +68,7 @@ class CalcInsulinaFragment : Fragment() {
                 resultado = calcularInsulina.resultado()
                 val formatar = NumberFormat.getNumberInstance(Locale("pt","BR"))
                 formatar.isGroupingUsed = false
-                txt_resultado_uiml.text = formatar.format(resultado) + " UI/ml"
+                txt_resultado_ui.text = formatar.format(resultado) + " UI"
             }
         }
         ic_redefinir_dados.setOnClickListener{
@@ -78,7 +78,7 @@ class CalcInsulinaFragment : Fragment() {
                 .setPositiveButton("Ok",{dialogInterface, i ->
                     edit_peso.setText("")
                     edit_carboidrato.setText("")
-                    txt_resultado_uiml.text = ""
+                    txt_resultado_ui.text = ""
                 })
             alertDialog.setNegativeButton("Cancelar", {dialogInterface, i ->
 
@@ -105,7 +105,7 @@ class CalcInsulinaFragment : Fragment() {
                 val intent = Intent(AlarmClock.ACTION_SET_ALARM)
                 intent.putExtra(AlarmClock.EXTRA_HOUR, txt_hora.text.toString().toInt())
                 intent.putExtra(AlarmClock.EXTRA_MINUTES, txt_minutos.text.toString().toInt())
-                intent.putExtra(AlarmClock.EXTRA_MESSAGE, getString(R.string.alarme_mensagem)+" Sua dosagem é: "+txt_resultado_uiml.text)
+                intent.putExtra(AlarmClock.EXTRA_MESSAGE, getString(R.string.alarme_mensagem)+" Sua dosagem é: "+txt_resultado_ui.text)
                 startActivity(intent)
             }
         }
@@ -115,7 +115,7 @@ class CalcInsulinaFragment : Fragment() {
         edit_peso = binding.editPeso
         edit_carboidrato = binding.editCarboidrato
         bt_calcular = binding.btCalcular
-        txt_resultado_uiml = binding.txtResultadoUiml
+        txt_resultado_ui = binding.txtResultadoUi
         ic_redefinir_dados = binding.icRedefinir
         bt_alarme = binding.btAlarme
         bt_lembrete = binding.btDefinirLembrete

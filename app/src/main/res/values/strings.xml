@@ -13,7 +13,7 @@
     <string name="text_task_update_sucess">Atualizado com sucesso.</string>
 
     <!--    Login Fragment-->
-    <string name="text_btn_login_fragment">Login</string>
+    <string name="text_btn_login_fragment">Entrar</string>
     <string name="text_recover_login_fragment">Recuperar conta</string>
     <string name="text_password_empty_login_fragment">Informe sua senha.</string>
     <string name="text_email_empty_login_fragment">Informe seu e-mail.</string>
@@ -67,7 +67,7 @@
     <!--    Calc Insulina Fragment-->
     <string name="hint_peso">Seu Peso(Kg)</string>
     <string name="hint_carboidratos">Carboidrato(g)</string>
-    <string name="text_buttom_calcular">Calcular Quantidade de Insulina</string>
+    <string name="text_buttom_calcular">Calcular Dosagem de Insulina</string>
     <string name="text_buttom_lembrete">Lembrete</string>
     <string name="text_buttom_alarme">Alarme</string>
     <string name="text_hora">00</string>

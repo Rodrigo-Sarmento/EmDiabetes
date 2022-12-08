@@ -1,5 +1,6 @@
 package com.digo.emdiabetes.ui
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,6 +21,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
+
 class ContactFragment : Fragment() {
 
     private var _binding: FragmentContactBinding? = null
@@ -28,6 +30,7 @@ class ContactFragment : Fragment() {
     private lateinit var contactAdapter: ContactAdapter
 
     private val contactList = mutableListOf<Contact>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +46,25 @@ class ContactFragment : Fragment() {
         initClicks()
 
         getContacts()
+
+       // send(Contact())
     }
+/*
+    private fun checkPermissions() {
+        if(ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.SEND_SMS)!=PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.SEND_SMS),101)
+        }
+    }
+
+    private fun send(contact: Contact){
+        val number = contact.numero
+        binding.fabSend.setOnClickListener{
+            //checkPermissions()
+            val smsIntent = Intent(Intent.ACTION_VIEW)
+            smsIntent.data = Uri.parse("sms:$number")
+            startActivity(smsIntent)
+        }
+    }*/
 
     //botão ADD
     private fun initClicks() {
