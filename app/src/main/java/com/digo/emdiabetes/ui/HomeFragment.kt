@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
 
         adapter.addFragment(GlycemiaFragment(), R.string.option_glycemia)
         adapter.addFragment(MedicationFragment(), R.string.option_medication)
-        adapter.addFragment(ContactFragment(), R.string.option_contact)
+        adapter.addFragment(DietFragment(), R.string.option_diet)
 
         binding.viewPager.offscreenPageLimit = adapter.itemCount
 

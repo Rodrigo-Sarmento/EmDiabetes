@@ -9,29 +9,29 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.digo.emdiabetes.R
-import com.digo.emdiabetes.databinding.FragmentFormContactBinding
+import com.digo.emdiabetes.databinding.FragmentFormDietBinding
 import com.digo.emdiabetes.helper.BaseFragment
 import com.digo.emdiabetes.helper.FirebaseHelper
 import com.digo.emdiabetes.helper.initToolbar
 import com.digo.emdiabetes.helper.showBottomSheet
-import com.digo.emdiabetes.model.Contact
+import com.digo.emdiabetes.model.Diet
 
-class FormContactFragment : BaseFragment() {
+class FormDietFragment : BaseFragment() {
 
-    private val args: FormContactFragmentArgs by navArgs()
+    private val args: FormDietFragmentArgs by navArgs()
 
-    private var _binding: FragmentFormContactBinding? = null
+    private var _binding: FragmentFormDietBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var contact: Contact
-    private var newContact: Boolean = true
+    private lateinit var diet: Diet
+    private var newDiet: Boolean = true
     // private var qtdMedication: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFormContactBinding.inflate(inflater, container, false)
+        _binding = FragmentFormDietBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -45,21 +45,21 @@ class FormContactFragment : BaseFragment() {
     }
 
     private fun getArgs() {
-        args.contact.let {
+        args.diet.let {
             if (it != null){
-                contact = it
+                diet = it
 
-                newContact = false
+                newDiet = false
             }
         }
     }
 
-    private fun configContact() {
-        newContact = false
+    private fun configDiet() {
+        newDiet = false
         //statusTask = task.status
         binding.textToolbar.text = getString(R.string.text_editing_form_fragment)
 
-        binding.edtDescription.setText(contact.nome)
+        binding.edtDescription.setText(diet.alimento)
         //setStatus()
     }
 
@@ -88,37 +88,36 @@ class FormContactFragment : BaseFragment() {
 
 
     private fun validateData() {
-        //nome contato
-        val nome = binding.edtDescription.text.toString().trim()
-        val numero = binding.edtNumero.text.toString().trim()
+        val refeicao = binding.edtDescription.text.toString().trim()
+        val alimento = binding.edtAlimento.text.toString().trim()
 
-        if (nome.isNotEmpty()) {
+        if (refeicao.isNotEmpty()) {
 
             hideKeyboard()
 
             binding.progressBar.isVisible = true
 
-            if (newContact) contact= Contact()
-            contact.nome = nome
-            contact.numero = Integer.valueOf(numero)
+            if (newDiet) diet= Diet()
+            diet.refeicao = refeicao
+            diet.alimento = alimento
             //task.status = statusTask
 
-            saveContact()
+            saveDiet()
         } else {
             showBottomSheet(message = R.string.text_description_empty_form_fragment)
         }
     }
 
-    private fun saveContact() {
+    private fun saveDiet() {
         FirebaseHelper
             .getDatabase()
-            .child("contact")
+            .child("diet")
             .child(FirebaseHelper.getIdUser() ?: "")
-            .child(contact.id)
-            .setValue(contact)
+            .child(diet.id)
+            .setValue(diet)
             .addOnCompleteListener { contact ->
                 if (contact.isSuccessful) {
-                    if (newContact) { // Nova tarefa
+                    if (newDiet) { // Nova tarefa
                         findNavController().popBackStack()
                         Toast.makeText(
                             requireContext(),

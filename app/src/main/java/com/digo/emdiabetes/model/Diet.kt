@@ -5,10 +5,10 @@ import com.digo.emdiabetes.helper.FirebaseHelper
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Contact(
+data class Diet(
     var id: String = "",
-    var nome: String = "",
-    var numero: Int = 0
+    var refeicao: String = "",
+    var alimento: String = "",
 ) : Parcelable {
     init {
         this.id = FirebaseHelper.getDatabase().push().key ?: ""

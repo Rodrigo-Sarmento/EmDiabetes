@@ -38,8 +38,8 @@
             android:id="@+id/action_homeFragment_to_formGlycemiaFragment"
             app:destination="@id/formGlycemiaFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_formContactFragment"
-            app:destination="@id/formContactFragment" />
+            android:id="@+id/action_homeFragment_to_formDietFragment"
+            app:destination="@id/formDietFragment" />
         <action
             android:id="@+id/action_homeFragment_to_calcInsulinaFragment"
             app:destination="@id/calcInsulinaFragment" />
@@ -96,13 +96,13 @@
             app:nullable="true" />
     </fragment>
     <fragment
-        android:id="@+id/formContactFragment"
-        android:name="com.digo.emdiabetes.ui.FormContactFragment"
-        android:label="fragment_form_contact"
-        tools:layout="@layout/fragment_form_contact" >
+        android:id="@+id/formDietFragment"
+        android:name="com.digo.emdiabetes.ui.FormDietFragment"
+        android:label="fragment_form_diet"
+        tools:layout="@layout/fragment_form_diet">
         <argument
-            android:name="contact"
-            app:argType="com.digo.emdiabetes.model.Contact"
+            android:name="diet"
+            app:argType="com.digo.emdiabetes.model.Diet"
             app:nullable="true" />
     </fragment>
     <fragment

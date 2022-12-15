@@ -48,9 +48,9 @@
     <string name="text_erro_save_form_fragment">Erro ao salvar.</string>
 
     <!--    Options-->
-    <string name="option_medication">Remédios</string>
+    <string name="option_medication">Medicamento</string>
     <string name="option_glycemia">Glicemia</string>
-    <string name="option_contact">Contatos</string>
+    <string name="option_diet">Dieta</string>
 
     <!--    Medication Fragment-->
     <string name="text_medication_list_empty_fragment">Nenhuma medicação cadastrada.</string>
@@ -60,9 +60,9 @@
     <string name="text_glycemia_list_empty_fragment">Nenhuma glicemia cadastrada.</string>
     <string name="text_message_delete_glycemia_fragment">Deseja realmente remover esta glicemia?</string>
 
-    <!--    Contact Fragment-->
-    <string name="text_contact_list_empty_fragment">Nenhum contato cadastrada.</string>
-    <string name="text_message_delete_contact_fragment">Deseja realmente remover este contato?</string>
+    <!--    Diet Fragment-->
+    <string name="text_diet_list_empty_fragment">Nenhuma refeição cadastrada.</string>
+    <string name="text_message_delete_diet_fragment">Deseja realmente remover esta refeição?</string>
 
     <!--    Home Fragment-->
     <string name="txt_message_logout">Deseja realmente sair?</string>

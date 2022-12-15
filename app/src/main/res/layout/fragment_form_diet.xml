@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.FormContactFragment">
+    tools:context=".ui.FormDietFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"
-                android:text="Novo Contato" />
+                android:text="Nova Refeição" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -53,7 +53,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome"
+                android:text="Refeição"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -80,13 +80,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="124dp"
-                android:text="número"
+                android:text="Alimento(s)"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/edtNumero"
+                android:id="@+id/edtAlimento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="144dp"

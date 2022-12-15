@@ -1,42 +1,53 @@
 package com.digo.emdiabetes.ui
 
 
+import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
+import android.provider.AlarmClock
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TimePicker
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.digo.emdiabetes.R
-import com.digo.emdiabetes.databinding.FragmentContactBinding
+import com.digo.emdiabetes.databinding.FragmentDietBinding
 
 import com.digo.emdiabetes.helper.FirebaseHelper
 import com.digo.emdiabetes.helper.showBottomSheet
-import com.digo.emdiabetes.model.Contact
-import com.digo.emdiabetes.ui.adapter.ContactAdapter
+import com.digo.emdiabetes.model.Diet
+import com.digo.emdiabetes.model.Glycemia
+import com.digo.emdiabetes.ui.adapter.DietAdapter
+import com.digo.emdiabetes.ui.adapter.GlycemiaAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import java.util.*
 
 
-class ContactFragment : Fragment() {
+class DietFragment : Fragment() {
 
-    private var _binding: FragmentContactBinding? = null
+    private var _binding: FragmentDietBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var contactAdapter: ContactAdapter
+    private lateinit var dietAdapter: DietAdapter
 
-    private val contactList = mutableListOf<Contact>()
+    private val dietList = mutableListOf<Diet>()
 
+    lateinit var timePickerDialog: TimePickerDialog
+    lateinit var calendario: Calendar
+    var horaAtual = 0
+    var minutosAtuais = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentContactBinding.inflate(inflater, container, false)
+        _binding = FragmentDietBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -45,57 +56,40 @@ class ContactFragment : Fragment() {
 
         initClicks()
 
-        getContacts()
+        getDiet()
 
-       // send(Contact())
     }
-/*
-    private fun checkPermissions() {
-        if(ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.SEND_SMS)!=PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.SEND_SMS),101)
-        }
-    }
-
-    private fun send(contact: Contact){
-        val number = contact.numero
-        binding.fabSend.setOnClickListener{
-            //checkPermissions()
-            val smsIntent = Intent(Intent.ACTION_VIEW)
-            smsIntent.data = Uri.parse("sms:$number")
-            startActivity(smsIntent)
-        }
-    }*/
 
     //botão ADD
     private fun initClicks() {
         binding.fabAddContact.setOnClickListener {
             val action = HomeFragmentDirections
-                .actionHomeFragmentToFormContactFragment(null)
+                .actionHomeFragmentToFormDietFragment(null)
             findNavController().navigate(action)
         }
     }
 
-    private fun getContacts() {
+    private fun getDiet() {
         FirebaseHelper
             .getDatabase()
-            .child("contact")
+            .child("diet")
             .child(FirebaseHelper.getIdUser() ?: "")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
 
-                        contactList.clear()
+                        dietList.clear()
                         for (snap in snapshot.children) {
-                            val contact = snap.getValue(Contact::class.java) as Contact
+                            val diet = snap.getValue(Diet::class.java) as Diet
 
-                            contactList.add(contact)
+                            dietList.add(diet)
                         }
 
-                        contactList.reverse()
+                        dietList.reverse()
                         initAdapter()
                     }
 
-                    contactsEmpty()
+                    dietEmpty()
 
                     binding.progressBar.isVisible = false
                 }
@@ -107,9 +101,9 @@ class ContactFragment : Fragment() {
             })
     }
 
-    private fun contactsEmpty() {
-        binding.textInfo.text = if (contactList.isEmpty()) {
-            getText(R.string.text_contact_list_empty_fragment)
+    private fun dietEmpty() {
+        binding.textInfo.text = if (dietList.isEmpty()) {
+            getText(R.string.text_diet_list_empty_fragment)
         } else {
             ""
         }
@@ -118,35 +112,52 @@ class ContactFragment : Fragment() {
     private fun initAdapter() {
         binding.rvTask.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTask.setHasFixedSize(true)
-        contactAdapter = ContactAdapter(requireContext(), contactList) { contact, select ->
-            optionSelect(contact, select)
+        dietAdapter = DietAdapter(requireContext(), dietList) { diet, select ->
+            optionSelect(diet, select)
         }
-        binding.rvTask.adapter = contactAdapter
+        binding.rvTask.adapter = dietAdapter
     }
 
-    private fun optionSelect(contact: Contact, select: Int) {
+    private fun alarme(diet: Diet){
+        calendario = Calendar.getInstance()
+        horaAtual = calendario.get(Calendar.HOUR_OF_DAY)
+        minutosAtuais = calendario.get(Calendar.MINUTE)
+        timePickerDialog = TimePickerDialog(requireContext(), {
+                timePicker: TimePicker, hourOfDay: Int, minutes: Int ->
+            val intent = Intent(AlarmClock.ACTION_SET_ALARM)
+            intent.putExtra(AlarmClock.EXTRA_HOUR, hourOfDay)
+            intent.putExtra(AlarmClock.EXTRA_MINUTES, minutes)
+            intent.putExtra(AlarmClock.EXTRA_MESSAGE, "Hora do "+diet.refeicao+"! Alimento(s):"+diet.alimento)
+            startActivity(intent)
+        },horaAtual,minutosAtuais,true)
+        timePickerDialog.show()
+    }
+
+    private fun optionSelect(diet: Diet, select: Int) {
         when (select) {
-            ContactAdapter.SELECT_REMOVE -> {
-                deleteContact(contact)
+            DietAdapter.SELECT_REMOVE -> {
+                deleteDiet(diet)
             }
-            ContactAdapter.SELECT_EDIT -> {
+            DietAdapter.SELECT_EDIT -> {
                 val action = HomeFragmentDirections
-                    .actionHomeFragmentToFormContactFragment(contact)
+                    .actionHomeFragmentToFormDietFragment(diet)
                 findNavController().navigate(action)
             }
-
+            DietAdapter.SELECT_DETAILS ->{
+                alarme(diet)
+            }
         }
     }
 
-    private fun updateContact(contact: Contact) {
+    private fun updateDiet(diet: Diet) {
         FirebaseHelper
             .getDatabase()
-            .child("contact")
+            .child("diet")
             .child(FirebaseHelper.getIdUser() ?: "")
-            .child(contact.id)
-            .setValue(contact)
-            .addOnCompleteListener { contact ->
-                if (contact.isSuccessful) {
+            .child(diet.id)
+            .setValue(diet)
+            .addOnCompleteListener { diet ->
+                if (diet.isSuccessful) {
                     Toast.makeText(
                         requireContext(),
                         R.string.text_task_update_sucess,
@@ -161,19 +172,19 @@ class ContactFragment : Fragment() {
             }
     }
 
-    private fun deleteContact(contact: Contact) {
+    private fun deleteDiet(diet: Diet) {
         showBottomSheet(
             titleButton = R.string.text_button_confirm,
-            message = R.string.text_message_delete_contact_fragment,
+            message = R.string.text_message_delete_diet_fragment,
             onClick = {
                 FirebaseHelper
                     .getDatabase()
-                    .child("contact")
+                    .child("diet")
                     .child(FirebaseHelper.getIdUser() ?: "")
-                    .child(contact.id)
+                    .child(diet.id)
                     .removeValue()
-                    .addOnCompleteListener { contact ->
-                        if (contact.isSuccessful) {
+                    .addOnCompleteListener { diet ->
+                        if (diet.isSuccessful) {
                             Toast.makeText(
                                 requireContext(),
                                 R.string.text_task_update_sucess,
@@ -187,8 +198,8 @@ class ContactFragment : Fragment() {
                         showBottomSheet(message = R.string.error_generic)
                     }
 
-                contactList.remove(contact)
-                contactAdapter.notifyDataSetChanged()
+                dietList.remove(diet)
+                dietAdapter.notifyDataSetChanged()
 
                 Toast.makeText(requireContext(), R.string.text_task_delete_sucess, Toast.LENGTH_SHORT).show()
             }

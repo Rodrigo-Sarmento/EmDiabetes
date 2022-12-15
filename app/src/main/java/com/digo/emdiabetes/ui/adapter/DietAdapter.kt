@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.digo.emdiabetes.databinding.ItemAdapterBinding
-import com.digo.emdiabetes.model.Contact
+import com.digo.emdiabetes.model.Diet
 
-class ContactAdapter(
+class DietAdapter(
     private val context: Context,
-    private val contactList: List<Contact>,
-    val contactSelected: (Contact, Int) -> Unit
-) : RecyclerView.Adapter<ContactAdapter.MyViewHolder>() {
+    private val dietList: List<Diet>,
+    val contactSelected: (Diet, Int) -> Unit
+) : RecyclerView.Adapter<DietAdapter.MyViewHolder>() {
 
     companion object {
         val SELECT_BACK: Int = 1
@@ -32,18 +32,18 @@ class ContactAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val contact= contactList[position]
+        val diet= dietList[position]
 
-        holder.binding.textDescription.text = "Nome: "+contact.nome +"\nNúmero: "+ contact.numero
+        holder.binding.textDescription.text = "Refeição: "+diet.refeicao +"\nAlimento(s): "+ diet.alimento
 
-        holder.binding.btnDelete.setOnClickListener { contactSelected(contact, SELECT_REMOVE) }
-        holder.binding.btnEdit.setOnClickListener { contactSelected(contact, SELECT_EDIT) }
-        holder.binding.btnDetails.setOnClickListener { contactSelected(contact, SELECT_DETAILS) }
+        holder.binding.btnDelete.setOnClickListener { contactSelected(diet, SELECT_REMOVE) }
+        holder.binding.btnEdit.setOnClickListener { contactSelected(diet, SELECT_EDIT) }
+        holder.binding.btnDetails.setOnClickListener { contactSelected(diet, SELECT_DETAILS) }
 
 
     }
 
-    override fun getItemCount() = contactList.size
+    override fun getItemCount() = dietList.size
 
     inner class MyViewHolder(val binding: ItemAdapterBinding) :
         RecyclerView.ViewHolder(binding.root)
