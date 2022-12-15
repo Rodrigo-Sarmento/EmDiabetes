@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import android.widget.Toast.*
+import androidx.navigation.fragment.findNavController
 import com.digo.emdiabetes.R
 import com.digo.emdiabetes.databinding.FragmentCalcInsulinaBinding
 import com.digo.emdiabetes.model.CalcularInsulina
@@ -109,7 +110,15 @@ class CalcInsulinaFragment : Fragment() {
                 startActivity(intent)
             }
         }
+        binding.logoEmDBack.setOnClickListener{
+            backHome()
+        }
     }
+
+    private fun backHome(){
+        findNavController().navigate(R.id.action_calcInsulinaFragment_to_homeFragment)
+    }
+
 
     private fun iniciarComponentes(){
         edit_peso = binding.editPeso

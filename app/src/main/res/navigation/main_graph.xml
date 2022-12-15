@@ -108,5 +108,9 @@
     <fragment
         android:id="@+id/calcInsulinaFragment"
         android:name="com.digo.emdiabetes.ui.CalcInsulinaFragment"
-        android:label="CalcInsulinaFragment" />
+        android:label="CalcInsulinaFragment" >
+        <action
+            android:id="@+id/action_calcInsulinaFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

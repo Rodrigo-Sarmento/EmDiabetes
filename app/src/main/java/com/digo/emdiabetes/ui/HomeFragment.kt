@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.digo.emdiabetes.R
 import com.digo.emdiabetes.databinding.FragmentHomeBinding
+import com.digo.emdiabetes.helper.showBottomSheet
 import com.digo.emdiabetes.ui.adapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
@@ -50,8 +51,13 @@ class HomeFragment : Fragment() {
     }
 
     private fun logoutApp() {
-        auth.signOut()
-        findNavController().navigate(R.id.action_homeFragment_to_authentication)
+        showBottomSheet(
+            titleButton = R.string.text_button_confirm,
+            message = R.string.txt_message_logout,
+            onClick = {
+                auth.signOut()
+                findNavController().navigate(R.id.action_homeFragment_to_authentication)
+            })
     }
 
     private fun configTablayout() {

@@ -64,6 +64,9 @@
     <string name="text_contact_list_empty_fragment">Nenhum contato cadastrada.</string>
     <string name="text_message_delete_contact_fragment">Deseja realmente remover este contato?</string>
 
+    <!--    Home Fragment-->
+    <string name="txt_message_logout">Deseja realmente sair?</string>
+
     <!--    Calc Insulina Fragment-->
     <string name="hint_peso">Seu Peso(Kg)</string>
     <string name="hint_carboidratos">Carboidrato(g)</string>
