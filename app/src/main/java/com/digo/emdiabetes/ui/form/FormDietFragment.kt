@@ -1,4 +1,4 @@
-package com.digo.emdiabetes.ui
+package com.digo.emdiabetes.ui.form
 
 import android.os.Bundle
 import android.view.LayoutInflater

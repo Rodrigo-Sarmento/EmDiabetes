@@ -20,9 +20,7 @@ import com.digo.emdiabetes.databinding.FragmentDietBinding
 import com.digo.emdiabetes.helper.FirebaseHelper
 import com.digo.emdiabetes.helper.showBottomSheet
 import com.digo.emdiabetes.model.Diet
-import com.digo.emdiabetes.model.Glycemia
 import com.digo.emdiabetes.ui.adapter.DietAdapter
-import com.digo.emdiabetes.ui.adapter.GlycemiaAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener

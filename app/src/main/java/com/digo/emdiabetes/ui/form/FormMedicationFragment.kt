@@ -1,4 +1,4 @@
-package com.digo.emdiabetes.ui
+package com.digo.emdiabetes.ui.form
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,28 +9,28 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.digo.emdiabetes.R
-import com.digo.emdiabetes.databinding.FragmentFormGlycemiaBinding
+import com.digo.emdiabetes.databinding.FragmentFormMedicationBinding
 import com.digo.emdiabetes.helper.BaseFragment
 import com.digo.emdiabetes.helper.FirebaseHelper
 import com.digo.emdiabetes.helper.initToolbar
 import com.digo.emdiabetes.helper.showBottomSheet
-import com.digo.emdiabetes.model.Glycemia
+import com.digo.emdiabetes.model.Medication
 
-class FormGlycemiaFragment : BaseFragment() {
+class FormMedicationFragment : BaseFragment() {
 
-    private val args: FormGlycemiaFragmentArgs by navArgs()
+    private val args: FormMedicationFragmentArgs by navArgs()
 
-    private var _binding: FragmentFormGlycemiaBinding? = null
+    private var _binding: FragmentFormMedicationBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var glycemia: Glycemia
-    private var newGlycemia: Boolean = true
+    private lateinit var medication: Medication
+    private var newMedication: Boolean = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFormGlycemiaBinding.inflate(inflater, container, false)
+        _binding = FragmentFormMedicationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -44,21 +44,21 @@ class FormGlycemiaFragment : BaseFragment() {
     }
 
     private fun getArgs() {
-        args.glycemia.let {
+        args.medication.let {
             if (it != null){
-                glycemia = it
+                medication = it
 
-                newGlycemia = false
+                newMedication = false
             }
         }
     }
 
-    private fun configGlycemia() {
-        newGlycemia = false
+    private fun configMedication() {
+        newMedication = false
         //statusTask = task.status
         binding.textToolbar.text = getString(R.string.text_editing_form_fragment)
 
-        binding.edtDescription.setText(glycemia.glicemia)
+        binding.edtDescription.setText(medication.nome)
         //setStatus()
     }
 
@@ -87,42 +87,36 @@ class FormGlycemiaFragment : BaseFragment() {
 
 
     private fun validateData() {
-        //quantidade de glicemia
-        val glicemia = binding.edtGlycemia.text.toString().trim()
-        val descricao = binding.edtDescription.text.toString().trim()
-        val dia = binding.edtDia.text.toString().toInt()
-        val mes = binding.edtMes.text.toString().toInt()
-        val ano = binding.edtAno.text.toString().toInt()
+        val nome = binding.edtDescription.text.toString().trim()
+        val dosagem = binding.edtDosagem.text.toString().trim()
 
-        if (glicemia.isNotEmpty()) {
+        if (nome.isNotEmpty()) {
 
             hideKeyboard()
 
             binding.progressBar.isVisible = true
 
-            if (newGlycemia) glycemia= Glycemia()
-            glycemia.glicemia = glicemia
-            glycemia.descricao = descricao
-            glycemia.dia = dia
-            glycemia.mes = mes
-            glycemia.ano = ano
+            if (newMedication) medication = Medication()
+            medication.nome = nome
+            medication.dosagem = dosagem
+            //task.status = statusTask
 
-            saveGlycemia()
+            saveMedication()
         } else {
             showBottomSheet(message = R.string.text_description_empty_form_fragment)
         }
     }
 
-    private fun saveGlycemia() {
+    private fun saveMedication() {
         FirebaseHelper
             .getDatabase()
-            .child("glycemia")
+            .child("medication")
             .child(FirebaseHelper.getIdUser() ?: "")
-            .child(glycemia.id)
-            .setValue(glycemia)
-            .addOnCompleteListener { glycemia ->
-                if (glycemia.isSuccessful) {
-                    if (newGlycemia) { // Nova tarefa
+            .child(medication.id)
+            .setValue(medication)
+            .addOnCompleteListener { medication ->
+                if (medication.isSuccessful) {
+                    if (newMedication) { // Nova tarefa
                         findNavController().popBackStack()
                         Toast.makeText(
                             requireContext(),

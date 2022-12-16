@@ -77,7 +77,7 @@
     </navigation>
     <fragment
         android:id="@+id/formTaskFragment"
-        android:name="com.digo.emdiabetes.ui.FormMedicationFragment"
+        android:name="com.digo.emdiabetes.ui.form.FormMedicationFragment"
         android:label="fragment_form_task"
         tools:layout="@layout/fragment_form_medication" >
         <argument
@@ -87,7 +87,7 @@
     </fragment>
     <fragment
         android:id="@+id/formGlycemiaFragment"
-        android:name="com.digo.emdiabetes.ui.FormGlycemiaFragment"
+        android:name="com.digo.emdiabetes.ui.form.FormGlycemiaFragment"
         android:label="fragment_form_glycemia"
         tools:layout="@layout/fragment_form_glycemia" >
         <argument
@@ -97,7 +97,7 @@
     </fragment>
     <fragment
         android:id="@+id/formDietFragment"
-        android:name="com.digo.emdiabetes.ui.FormDietFragment"
+        android:name="com.digo.emdiabetes.ui.form.FormDietFragment"
         android:label="fragment_form_diet"
         tools:layout="@layout/fragment_form_diet">
         <argument
