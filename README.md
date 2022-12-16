@@ -5,11 +5,7 @@
 
 <p align="center">
    <img src="http://img.shields.io/static/v1?label=LICENSE&message=%20MIT&color=RED&style=for-the-badge"/>
-<<<<<<< HEAD
    <img src="http://img.shields.io/static/v1?label=VERSION&message=%200.6&color=RED&style=for-the-badge"/>
-=======
-   <img src="http://img.shields.io/static/v1?label=VERSION&message=%200.5&color=RED&style=for-the-badge"/>
->>>>>>> 88ae705b59b3e1e21f5ddc6cf57d87a75b4ea0ef
 </p>
 
 ### Tópicos 
