@@ -47,13 +47,13 @@ O aplicativo sinalizará com a cor vermelha hiperglicemia e hipoglicemia.
 
 :heavy_check_mark: `Funcionalidade 1:` Realizar cadastro do usuário.
 
-:heavy_check_mark: `Funcionalidade 2:` Armazenar dados do usuário, como glicemia, medicação e dieta no banco de dados no Realtime Database.
+:heavy_check_mark: `Funcionalidade 2:` Armazenar dados do usuário, como glicemia, medicamento e dieta no banco de dados no Realtime Database.
 
 :heavy_check_mark: `Funcionalidade 3:` Calcular dosagem de insulina.
 
 :heavy_check_mark: `Funcionalidade 4:` Buscar glicemias, medicamentos e refeições.
 
-:heavy_check_mark: `Funcionalidade 5:` Alertar horário de insulina, medicamento e refeições.
+:heavy_check_mark: `Funcionalidade 5:` Alertar horário de insulina, medicamentos, refeições e de medir glicemia.
 
 :heavy_check_mark: `Funcionalidade 6:` Sinalizar hiperglicemia e hipoglicemia.
 
