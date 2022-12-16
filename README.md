@@ -5,7 +5,7 @@
 
 <p align="center">
    <img src="http://img.shields.io/static/v1?label=LICENSE&message=%20MIT&color=RED&style=for-the-badge"/>
-   <img src="http://img.shields.io/static/v1?label=VERSION&message=%200.1&color=RED&style=for-the-badge"/>
+   <img src="http://img.shields.io/static/v1?label=VERSION&message=%200.6&color=RED&style=for-the-badge"/>
 </p>
 
 ### Tópicos 
@@ -42,8 +42,6 @@ O aplicativo permitirá que o usuário mande uma mensagem de alerta para seus co
 <p align="center">
 <img src="https://user-images.githubusercontent.com/59851576/206073295-1482fbc2-ada8-46ef-82ec-4e902efb994f.png" width="350" height="600"/>
 <p/>
-
-</p>
 
 ## Funcionalidades do projeto
 
