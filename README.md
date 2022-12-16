@@ -5,7 +5,7 @@
 
 <p align="center">
    <img src="http://img.shields.io/static/v1?label=LICENSE&message=%20MIT&color=RED&style=for-the-badge"/>
-   <img src="http://img.shields.io/static/v1?label=VERSION&message=%200.6&color=RED&style=for-the-badge"/>
+   <img src="http://img.shields.io/static/v1?label=VERSION&message=%200.7&color=RED&style=for-the-badge"/>
 </p>
 
 ### Tópicos 
@@ -33,31 +33,27 @@
 
 O aplicativo permitirá o controle diário e contínuo do nível de glicose no sangue (glicemia), possibilitando que familiares, cuidadores, profissionais da saúde ou o próprio paciente acompanhem o estado clínico do mesmo.
 
-O aplicativo lembrará o usuário a hora de tomar sua insulina e seus medicamentos.
+O aplicativo lembrará o usuário a hora de tomar sua insulina, seus medicamentos e suas refeições.
 
 O aplicativo permitirá o usuário calcular a dosagem correta de sua insulina.
 
-O aplicativo permitirá que o usuário mande uma mensagem de alerta para seus contatos de segurança.
+O aplicativo sinalizará com a cor vermelha hiperglicemia e hipoglicemia.
  
 <p align="center">
 <img src="https://user-images.githubusercontent.com/59851576/206073295-1482fbc2-ada8-46ef-82ec-4e902efb994f.png" width="350" height="600"/>
 <p/>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 88ae705b59b3e1e21f5ddc6cf57d87a75b4ea0ef
 ## Funcionalidades do projeto
 
 :heavy_check_mark: `Funcionalidade 1:` Realizar cadastro do usuário.
 
-:heavy_check_mark: `Funcionalidade 2:` Armazenar dados do usuário, como glicemia, medicação e contatos de segurança no banco de dados no Realtime Database.
+:heavy_check_mark: `Funcionalidade 2:` Armazenar dados do usuário, como glicemia, medicação e dieta no banco de dados no Realtime Database.
 
 :heavy_check_mark: `Funcionalidade 3:` Calcular dosagem de insulina.
 
-:heavy_check_mark: `Funcionalidade 4:` Enviar mensagem para contatos de segurança.
+:heavy_check_mark: `Funcionalidade 4:` Buscar glicemias, medicamentos e refeições.
 
-:heavy_check_mark: `Funcionalidade 5:` Alertar horário de insulina e medicação.
+:heavy_check_mark: `Funcionalidade 5:` Alertar horário de insulina, medicamento e refeições.
 
 :heavy_check_mark: `Funcionalidade 6:` Sinalizar hiperglicemia e hipoglicemia.
 
