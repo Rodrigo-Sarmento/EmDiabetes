@@ -5,7 +5,11 @@
 
 <p align="center">
    <img src="http://img.shields.io/static/v1?label=LICENSE&message=%20MIT&color=RED&style=for-the-badge"/>
+<<<<<<< HEAD
    <img src="http://img.shields.io/static/v1?label=VERSION&message=%200.6&color=RED&style=for-the-badge"/>
+=======
+   <img src="http://img.shields.io/static/v1?label=VERSION&message=%200.5&color=RED&style=for-the-badge"/>
+>>>>>>> 88ae705b59b3e1e21f5ddc6cf57d87a75b4ea0ef
 </p>
 
 ### Tópicos 
@@ -43,6 +47,10 @@ O aplicativo permitirá que o usuário mande uma mensagem de alerta para seus co
 <img src="https://user-images.githubusercontent.com/59851576/206073295-1482fbc2-ada8-46ef-82ec-4e902efb994f.png" width="350" height="600"/>
 <p/>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 88ae705b59b3e1e21f5ddc6cf57d87a75b4ea0ef
 ## Funcionalidades do projeto
 
 :heavy_check_mark: `Funcionalidade 1:` Realizar cadastro do usuário.
