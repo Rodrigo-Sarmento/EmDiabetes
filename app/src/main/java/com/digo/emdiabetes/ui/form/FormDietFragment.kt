@@ -49,18 +49,17 @@ class FormDietFragment : BaseFragment() {
             if (it != null){
                 diet = it
 
-                newDiet = false
+                configDiet()
             }
         }
     }
 
     private fun configDiet() {
         newDiet = false
-        //statusTask = task.status
         binding.textToolbar.text = getString(R.string.text_editing_form_fragment)
 
         binding.edtDescription.setText(diet.alimento)
-        //setStatus()
+        binding.edtAlimento.setText(diet.alimento)
     }
 
     /*

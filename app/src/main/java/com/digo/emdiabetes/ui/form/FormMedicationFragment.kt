@@ -48,18 +48,17 @@ class FormMedicationFragment : BaseFragment() {
             if (it != null){
                 medication = it
 
-                newMedication = false
+                configMedication()
             }
         }
     }
 
     private fun configMedication() {
         newMedication = false
-        //statusTask = task.status
         binding.textToolbar.text = getString(R.string.text_editing_form_fragment)
 
         binding.edtDescription.setText(medication.nome)
-        //setStatus()
+        binding.edtDosagem.setText(medication.dosagem)
     }
 
     /*

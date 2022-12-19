@@ -48,18 +48,21 @@ class FormGlycemiaFragment : BaseFragment() {
             if (it != null){
                 glycemia = it
 
-                newGlycemia = false
+                configGlycemia()
             }
         }
     }
 
     private fun configGlycemia() {
         newGlycemia = false
-        //statusTask = task.status
+
         binding.textToolbar.text = getString(R.string.text_editing_form_fragment)
 
-        binding.edtDescription.setText(glycemia.glicemia)
-        //setStatus()
+        binding.edtDescription.setText(glycemia.descricao)
+        binding.edtGlycemia.setText(glycemia.glicemia)
+        binding.edtDia.setText(glycemia.dia.toString())
+        binding.edtMes.setText(glycemia.mes.toString())
+        binding.edtAno.setText(glycemia.ano.toString())
     }
 
     /*
