@@ -126,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="128dp"
                 android:background="@drawable/bg_edit"
-                android:maxLength="70"
+                android:maxLength="117"
                 android:hint="@string/text_description_hint_form_fragment"
                 android:padding="14dp"
                 android:textSize="14sp"

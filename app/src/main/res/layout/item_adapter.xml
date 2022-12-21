@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:ellipsize="end"
-                android:maxLines="3"
+                android:maxLines="5"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
