@@ -20,8 +20,8 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
-                android:layout_width="300dp"
-                android:layout_height="63dp"
+                android:layout_width="324dp"
+                android:layout_height="62dp"
                 android:background="@color/color_default"
                 android:elevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
