@@ -8,7 +8,7 @@
    <img src="http://img.shields.io/static/v1?label=VERSION&message=%200.7&color=RED&style=for-the-badge"/>
 </p>
 
-### Tópicos 
+### Tópicos
 
 - [Descrição do projeto](#descrição-do-projeto)
 
@@ -26,7 +26,7 @@
 
 - [Desenvolvedor](#desenvolvedor)
 
-## Descrição do projeto 
+## Descrição do projeto
 
 <p align="justify">
  O EmDiabetes é um aplicativo para controle e acompanhamento especializado de pessoas acometidas por diabetes mellitus.
@@ -38,7 +38,7 @@ O aplicativo lembrará o usuário a hora de tomar sua insulina, seus medicamento
 O aplicativo permitirá o usuário calcular a dosagem correta de sua insulina.
 
 O aplicativo sinalizará com a cor vermelha hiperglicemia e hipoglicemia.
- 
+
 <p align="center">
 <img src="https://user-images.githubusercontent.com/59851576/206073295-1482fbc2-ada8-46ef-82ec-4e902efb994f.png" width="350" height="600"/>
 <p/>
@@ -58,7 +58,7 @@ O aplicativo sinalizará com a cor vermelha hiperglicemia e hipoglicemia.
 :heavy_check_mark: `Funcionalidade 6:` Sinalizar hiperglicemia e hipoglicemia.
 
 ## Aplicação
-[videoEmD1.webm](https://user-images.githubusercontent.com/59851576/206075565-3514a933-225f-4dd0-b2f3-224dc8d7f4ca.webm)
+[videoEmD5.webm](https://user-images.githubusercontent.com/59851576/209887320-d75fe618-575c-4591-977c-cd4d9010576c.webm)
 
 ###
 
@@ -92,7 +92,7 @@ Após baixar o projeto, você pode abrir com o `Android Studio`. Para isso, na t
 - Procure o local onde o projeto está e o selecione (Caso o projeto seja baixado via zip, é necessário extraí-lo antes de procurá-lo);
 - Por fim clique em `OK`.
 
-O `Android Studio` deve executar algumas tasks do *Gradle* para configurar o projeto, aguarde até finalizar. Ao finalizar as tasks, você pode executar o App 🏆 
+O `Android Studio` deve executar algumas tasks do *Gradle* para configurar o projeto, aguarde até finalizar. Ao finalizar as tasks, você pode executar o App 🏆
 
 ## Desenvolvedor
 
