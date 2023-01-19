@@ -29,7 +29,7 @@
 ## Descrição do projeto
 
 <p align="justify">
- O EmDiabetes é um aplicativo para controle e acompanhamento especializado de pessoas acometidas por diabetes mellitus.
+ O EmDiabetes é um aplicativo para auxiliar pessoas acometidas por diabetes mellitus de todos os tipos na sua rotina diária com a doença.
 
 O aplicativo permitirá o controle diário e contínuo do nível de glicose no sangue (glicemia), possibilitando que familiares, cuidadores, profissionais da saúde ou o próprio paciente acompanhem o estado clínico do mesmo.
 
