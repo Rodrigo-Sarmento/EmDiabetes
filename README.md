@@ -73,6 +73,7 @@ O aplicativo sinalizará com a cor vermelha hiperglicemia e hipoglicemia.
 - ``Tablayout``
 - ``Adapter``
 - ``RecyclerView``
+- ``ViewBinding``
 ###
 
 ## Compatibilidade
