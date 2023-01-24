@@ -4,12 +4,11 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.provider.AlarmClock
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +20,7 @@ import com.digo.emdiabetes.model.Glycemia
 import com.digo.emdiabetes.model.Medication
 import com.digo.emdiabetes.ui.adapter.GlycemiaAdapter
 import com.digo.emdiabetes.ui.adapter.MedicationAdapter
+import com.ferfalk.simplesearchview.SimpleSearchView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -42,6 +42,11 @@ class GlycemiaFragment : Fragment() {
     var horaAtual = 0
     var minutosAtuais = 0
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,9 +57,67 @@ class GlycemiaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
 
         initClicks()
         getGlycemias()
+        initSearchView()
+    }
+
+    private fun initSearchView(){
+        binding.searchView.setOnQueryTextListener(object : SimpleSearchView.OnQueryTextListener {
+            //qd aperta o botão de pesquisar
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+            //faz a pesquisa em tempo real, conforme for digitando
+            override fun onQueryTextChange(query: String): Boolean {
+                binding.textInfo.text = if(glycemiaAdapter.searchGlycemia(query)){
+                    "Nenhum resultado encontrado"
+                }else{
+                    ""
+                }
+                return true
+            }
+            //quando limpar o texto
+            override fun onQueryTextCleared(): Boolean {
+                return false
+            }
+        })
+        binding.searchView.setOnSearchViewListener(object : SimpleSearchView.SearchViewListener {
+            override fun onSearchViewShown() {
+            }
+
+            override fun onSearchViewClosed() {
+                glycemiaAdapter.clearSearchGlycemia()
+                binding.textInfo.text = ""
+            }
+
+            override fun onSearchViewShownAnimation() {
+            }
+
+            override fun onSearchViewClosedAnimation() {
+            }
+        })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_search){
+
+        }else{
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        //val inflater: MenuInflater = getMenuInflater()
+        inflater.inflate(R.menu.menu_main, menu)
+
+        val item = menu.findItem(R.id.menu_search)
+        binding.searchView.setMenuItem(item)
+
+        //return true
     }
 
     //botão ADD

@@ -16,6 +16,8 @@ class GlycemiaAdapter(
     val glycemiaSelected: (Glycemia, Int) -> Unit
 ) : RecyclerView.Adapter<GlycemiaAdapter.MyViewHolder>() {
 
+    private var glycemiaListM = glycemiaList.toMutableList()
+
     companion object {
         val SELECT_BACK: Int = 1
         val SELECT_REMOVE: Int = 2
@@ -35,7 +37,7 @@ class GlycemiaAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val glycemia= glycemiaList[position]
+        val glycemia= glycemiaListM[position]
         val colorGlicoseDesregulada = ContextCompat.getColor(context, R.color.color_1)
         val colorGlicoseregulada = ContextCompat.getColor(context, R.color.color_2)
 
@@ -55,7 +57,22 @@ class GlycemiaAdapter(
 
     }
 
-    override fun getItemCount() = glycemiaList.size
+    override fun getItemCount() = glycemiaListM.size
+
+    fun searchGlycemia(query: String): Boolean{
+        glycemiaListM.clear()
+
+        glycemiaListM.addAll(glycemiaList.filter { it.glicemia.contains(query, true) })
+
+        notifyDataSetChanged()
+
+        return glycemiaListM.isEmpty()
+    }
+
+    fun clearSearchGlycemia() {
+        glycemiaListM = glycemiaList.toMutableList()
+        notifyDataSetChanged()
+    }
 
     inner class MyViewHolder(val binding: ItemAdapterBinding) :
         RecyclerView.ViewHolder(binding.root)
